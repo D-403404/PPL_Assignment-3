@@ -1,0 +1,11 @@
+
+func check(number lst, number n)
+begin
+    if (lst == [0]) return true
+    return lst[0] > n and check(lst[1 ... len(lst)],n)
+end
+
+func main()
+begin
+    print(check([21,12,1000,100,90],11))
+end

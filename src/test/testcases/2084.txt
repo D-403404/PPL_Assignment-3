@@ -1,0 +1,20 @@
+ 
+## Function to reverse a string
+func reverseStr(string str)
+begin
+    number n <- length(str)
+ 
+    ## Swap character starting from two
+    ## corners
+    number i <- 0
+    for i until i >= n / 2 by 1
+        swap(str[i], str[n - i - 1])
+end
+ 
+## Driver program
+func main()
+begin
+    string str <- "I Am A Rock"
+    reverseStr(str)
+    writeString(str)
+end

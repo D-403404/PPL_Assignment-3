@@ -1,0 +1,28 @@
+ 
+## Function to convert binary 
+## to decimal 
+func binaryToDecimal(string n) 
+begin 
+    string num <- n 
+    number dec_value <- 0 
+  
+    ## Initializing base value to 1, i.e 2^0 
+    number base <- 1 
+  
+    number len <- length(num) 
+    number i <- len - 1
+    for i until i >= 0 by 1 begin 
+        if (num[i] == "1") 
+            dec_value <- dec_value + base 
+        base <- base * 2 
+    end 
+  
+    return dec_value 
+end 
+  
+## Driver code 
+func main() 
+begin 
+    string num <- "10101001" 
+    writeNumber(binaryToDecimal(num))
+end

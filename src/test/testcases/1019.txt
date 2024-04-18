@@ -1,0 +1,11 @@
+
+func fooooooo ()
+
+
+	return "fool'"'"'"fool"
+
+
+dynamic a1
+
+var a2
+

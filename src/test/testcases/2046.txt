@@ -1,0 +1,11 @@
+
+func product(number lst)
+begin
+    if (lst == [0]) return 1
+    return lst[0] * product(lst[1 ... len(lst)])
+end
+
+func main()
+begin
+    print(product([3,4,7,11]))
+end

@@ -1,0 +1,13 @@
+
+func f(number lst)
+begin
+    return [split(","), tuple(split(","))]
+end
+    
+func main()
+begin
+    lst <- input()
+    res <- f(lst)
+    print(res[0])
+    print(res[1])
+end

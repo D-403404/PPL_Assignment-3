@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(foo), [], Block([VarDecl(Id(i), ArrayType([1.0, 2.0, 3.0], NumberType), None, ArrayLit(ArrayLit(NumLit(1.0), NumLit(2.0)), NumLit(3.0))), For(Id(i), BinaryOp(>=, Id(i), NumLit(10.0)), NumLit(1.0), CallStmt(Id(writeNumbe), [Id(i)]))]))])

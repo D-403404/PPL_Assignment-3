@@ -1,0 +1,37 @@
+
+## Driver code 
+func main()
+begin
+    string op
+    number num1
+    number num2
+ 
+    ## It allows user to enter operator
+    ## i.e. +, -, *, /
+    readNumber(op)
+ 
+    ## It allow user to enter the operands
+    readNumber(num1) 
+    readNumber(num2)
+ 
+    ## If user enter +
+    if (op == "+")
+        writeNumber(num1 + num2)
+ 
+    ## If user enter -
+    elif (op == "-")
+        writeNumber(num1 - num2)
+ 
+    ## If user enter *
+    elif (op == "*")
+        writeNumber(num1 * num2)
+ 
+    ## If user enter /
+    elif (op == "/")
+        writeNumber(num1 / num2)
+ 
+    ## If the operator is other than +, -, * or /,
+    ## error message will display
+    else
+        writeString("Error! operator is not correct")
+end

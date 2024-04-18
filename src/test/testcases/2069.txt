@@ -1,0 +1,36 @@
+
+func printPascal() 
+begin 
+      
+    ## An auxiliary array to store  
+    ## generated pascal triangle values 
+    number arr[10,10]  
+  
+    ## Iterate through every line and  
+    ## print integer(s) in it 
+    number line <- 0
+    for line until line >= 10 by 1
+    begin 
+        ## Every line has number of integers  
+        ## equal to line number 
+        number i <- 0 
+        for i until i > line by 1
+        begin 
+            ## First and last values in every row are 1 
+            if ((line == i) or( i == 0)) 
+                arr[line,i] <- 1 
+            ## Other values are sum of values just  
+            ## above and left of above 
+            else
+                arr[line,i] <- arr[line - 1,i - 1] + arr[line - 1,i] 
+            writeString(arr[line,i] ... " " )
+        end 
+        writeString("\\n")
+    end 
+end 
+  
+## Driver code 
+func main() 
+begin 
+    printPascal() 
+end 

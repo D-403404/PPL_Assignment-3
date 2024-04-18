@@ -1,0 +1,41 @@
+
+## Prints roots of quadratic equation
+## ax*2 + bx + x
+func findRoots(number a, number b, number c)
+begin
+    ## If a is 0, then equation is
+    ## not quadratic, but linear
+    if (a == 0) begin
+        writeString("Invalid")
+        return
+    end
+ 
+    number d <- b * b - 4 * a * c
+    number sqrt_val <- sqrt(abs(d))
+ 
+    if (d > 0) begin
+        writeString("Roots are real and different ")
+        writeString((str((-b + sqrt_val) / (2 * a)) ... " ") ... str((-b - sqrt_val) / (2 * a)))
+    end
+    else if (d == 0) begin
+        writeString("Roots are real and same ")
+        writeNumber(-b / (2 * a))
+    end
+ 
+    ## d < 0
+    else begin
+        writeString("Roots are complex ")
+        writeString((((((str(-b / (2 * a)) ... " + i") ... str(sqrt_val / (2 * a))) ... " ") ... str(-b / (2 * a))) ... " - i") ... str(sqrt_val / (2 * a)))
+    end
+end
+ 
+## Driver code
+func main()
+begin
+    number a <- 1
+    number b <- -7
+    number c <- 12
+ 
+    ## Function call
+    findRoots(a, b, c)
+end

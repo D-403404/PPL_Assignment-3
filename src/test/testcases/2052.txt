@@ -1,0 +1,9 @@
+
+func lessThan(number lst)
+    return filter(lambda(x < n), lst)
+
+func main()
+begin
+    print(lessThan([1,2,3,-1,0],6))
+    print(lessThan([1,2,3,4,5],4))
+end

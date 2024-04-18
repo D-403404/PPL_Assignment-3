@@ -1,0 +1,48 @@
+
+func print_patt(number R)
+begin
+    ## To iterate through the rows
+    number i <- 1
+    for i until i > R by 1
+    begin
+        ## To print the  beginning spaces 
+        number sp <- 1 
+        for sp until sp > i - 1 by 1
+        begin
+            writeString(" ")
+        end
+       
+        ## Iterating from ith column to
+        ## last column (R*2 - (2*i - 1))
+        number last_col <- (R * 2 - (2 * i - 1))
+            
+        ## To iterate through column
+        number j <- 1
+        for j until j > last_col by 1
+        begin
+            ## To Print all star for first 
+            ## row (i==1) ith column (j==1) 
+            ## and for last column 
+            ## (R*2 - (2*i - 1))
+            if(i == 1)
+                writeString("*")
+            elif(j == 1)
+                writeString("*")
+            elif(j == last_col)
+                writeString("*")
+            else
+                writeString(" ")
+        end
+         
+    ## After printing a row proceed 
+    ## to the next row
+    writeString("\\n")
+    end
+end
+  
+## Driver's Code 
+func main() 
+begin 
+    number n <- 7 
+    print_patt(n) 
+end 

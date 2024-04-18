@@ -1,0 +1,25 @@
+
+func foo(number a[2], number __aaaaa__, string b[1,2,3], bool arr[3.3,4e4,5.,0.5])
+    begin
+        if (f==2)
+            begin
+                if (a<2) continue
+                if (b>3) continue
+                if (c<=4) continue
+                if (d>=5) continue
+                elif (d==5 and (d!=5)) break
+                elif (d!=5 and ((d==__) and d==5)) break
+                elif ((c!="") and (c==0)) return _bool(true)
+                elif ((c==true and (c=4)) and 4=c) return
+                ##else goo(1,2,3)
+                elif (true) begin
+end
+
+                else begin
+end
+
+            end
+        elif (false) begin
+end
+
+    end

@@ -1,0 +1,6 @@
+
+func foo()
+    begin
+        number arr[3, foo(5)*4,6]
+    end
+        

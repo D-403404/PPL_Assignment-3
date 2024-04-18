@@ -1,0 +1,24 @@
+ 
+func multiply(number x, number y) 
+begin 
+    if(y) 
+        return (x + multiply(x, y - 1)) 
+    else
+        return 0 
+end 
+  
+## A recursive function to get a^b 
+## Works only if a >= 0 and b >= 0 
+func pow(number a, number b) 
+begin 
+    if(b) 
+        return multiply(a, pow(a, b - 1)) 
+    else
+        return 1 
+end  
+  
+## Driver Code 
+func main() 
+begin 
+    writeNumber(pow(5, 3))
+end 

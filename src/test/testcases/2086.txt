@@ -1,0 +1,35 @@
+ 
+## Function to find string which has 
+## first character of each word.
+func firstLetterWord(string str)
+begin
+    string result <- ""
+ 
+    ## Traverse the string
+    bool v <- true
+    number i <- 0
+    for i until i >= length(str) by 1
+    begin
+        ## If it is space, set v as true.
+        if (str[i] == " ")
+            v <- true
+ 
+        ## Else check if v is true or not.
+        ## If true, copy character in output
+        ## string and set v as false.
+        elif ((str[i] != " ") and (v == true))
+        begin
+            push_back(result, str[i])
+            v <- false
+        end
+    end
+ 
+    return result
+end
+ 
+## Driver code
+func main()
+begin
+    string str <- "World Health Organization and some kid s"
+    writeString(firstLetterWord(str))
+end

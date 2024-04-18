@@ -1,0 +1,4 @@
+a,quick,brown,fox,jumps,over,a,lazy,dog,,,
+,(,actually,this,is,just,a,random,sentence,\n,\r,[,1,n_order,_t0,tEsT,s0me_Lexer RULE$$$__$$$,],),
+,go away!,
+,Error Token 

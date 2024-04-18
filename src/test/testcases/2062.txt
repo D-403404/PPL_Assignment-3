@@ -1,0 +1,28 @@
+
+func foo(number n)
+begin
+    number res <- 1
+    number i <- 2
+    for i until i > n by 1
+        if (i < 5) res <- res + 1
+        elif (i < 7) 
+            if (res < 100) 
+                for res until res >= 100 by 5
+                    continue
+            elif (res < 200) res <- res + 2
+            else res <- res / 2
+        elif (i < 10)
+        begin
+            print(i % 2)
+            res <- i
+        end
+        else break
+    return res
+end
+  
+## Driver code 
+func main() 
+begin
+    number n <- 123456
+    print(foo(n)) 
+end

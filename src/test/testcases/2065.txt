@@ -1,0 +1,55 @@
+
+## Driver code 
+func main()
+begin
+    number n <- 5
+    number rows
+    number columns
+    ## for loop is used to identify the number of rows and
+    ## it is used to print upper triangle
+    rows <- 1
+    for rows until rows > n by 1 begin
+        ## used for printing the spaces
+        columns <- n
+        for columns until columns <= rows by -1 begin
+            writeString(" ")
+        end
+        ## print star
+        writeString("*")
+        ## again print the spaces
+        columns <- 1
+        for columns until columns >= (rows - 1) * 2 by 1
+        begin
+            writeString(" ")
+        end
+        if (rows == 1) begin
+            writeString("\\n")
+        end
+        else begin
+            writeString("*\\n")
+        end
+    end
+    ## for loop is used to identify the number of rows and
+    ## it is used to print lower triangle
+    rows <- n - 1
+    for rows until rows < 1 by -1 begin
+        ## used for printing the spaces
+        columns <- n
+        for columns until columns <= rows by -1 begin
+            writeString(" ")
+        end
+        ## print star
+        writeString("*")
+        columns <- 1
+        for columns until columns >= (rows - 1) * 2 by 1
+        begin
+            writeString(" ")
+        end
+        if (rows == 1) begin
+            writeString("\\n")
+        end
+        else begin
+            writeString("*\\n")
+        end
+    end
+end

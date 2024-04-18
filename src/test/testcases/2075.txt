@@ -1,0 +1,41 @@
+
+func sortRowWise(number m, number r, number c)
+begin
+    ## Loop for rows of matrix
+    number i <- 0
+    for i until i >= r by 1
+    begin
+        ## Loop for column of matrix
+        number j <- 0
+        for j until j >= c by 1
+        begin
+            ## Loop for comparison and swapping
+            number k <- 0
+            for k until k >= c - j - 1 by 1
+            begin
+                if (m[i,k] > m[i,k + 1]) 
+                begin
+                    ## Swapping of elements
+                    swap(m[i,k], m[i,k + 1])
+                end
+            end
+        end
+    end
+ 
+    ## Printing the sorted matrix
+    number i <- 0
+    for i until i >= r by 1 
+    begin
+        number j <- 0
+        for j until j >= c by 1
+            writeString(m[i,j] ... " ")
+        writeString("\\n")
+    end
+end
+ 
+## Driver code
+func main()
+begin
+    number m[4,4] <- [[9, 8, 7, 1], [7, 3, 0, 2], [9, 5, 3, 2], [6, 3, 1, 2]]
+    sortRowWise(m, 4, 4)
+end

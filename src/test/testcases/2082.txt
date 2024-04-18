@@ -1,0 +1,46 @@
+ 
+## Function to convert hexadecimal 
+## to decimal 
+func hexadecimalToDecimal(string hexVal) 
+begin 
+    number len <- size(hexVal) 
+  
+    ## Initializing base value to 1, 
+    ## i.e 16^0 
+    number base <- 1 
+  
+    number dec_val <- 0 
+  
+    ## Extracting characters as digits 
+    ## from last character 
+    number i <- len - 1
+    for i until i < 0 by -1 begin 
+        ## If character lies in '0'-'9', 
+        ## converting it to integral 0-9 
+        ## by subtracting 48 from ASCII value 
+        if ((hexVal[i] >= "0") and (hexVal[i] <= "9")) begin 
+            dec_val <- dec_val + ((hexVal[i]) - 48) * base 
+  
+            ## incrementing base by power 
+            base <- base * 16 
+        end 
+  
+        ## If character lies in 'A'-'F' , converting 
+        ## it to integral 10 - 15 by subtracting 55 
+        ## from ASCII value 
+        else if ((hexVal[i] >= "A") and( hexVal[i] <= "F")) begin 
+            dec_val <- dec_val + ((hexVal[i]) - 55) * base 
+  
+            ## Incrementing base by power 
+            base <- base * 16 
+        end 
+    end 
+    return dec_val 
+end 
+  
+## Driver code 
+func main() 
+begin 
+    string hexNum <- "FFFF1111" 
+    writeNumber(hexadecimalToDecimal(hexNum)) 
+end

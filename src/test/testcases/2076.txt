@@ -1,0 +1,22 @@
+
+func search(number arr, number n, number x)
+begin
+    number i <- 0
+    for i until i >= n by 1
+        if (arr[i] == x)
+            return i
+    return -1
+end
+ 
+## Driver code
+func main()
+begin
+    number arr[5] <- [2, 3, 4, 10, 40]
+    number x <- 10
+   
+    number result <- search(arr, 5, x)
+    if (result == -1) 
+        writeString("Element is not present in array" )
+    else
+        writeString("Element is present at index " ... str(result))
+end

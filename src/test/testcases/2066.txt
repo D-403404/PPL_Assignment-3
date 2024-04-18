@@ -1,0 +1,23 @@
+
+func printReverseFloyd(number n) 
+begin 
+    number curr_val <- n * (n + 1) / 2
+    number i <- n 
+    for i until i < 1 by -1
+    begin 
+        number j <- i
+        for j until j < 1 by -1
+        begin 
+            writeString((curr_val-1) ... "  ")
+        end 
+  
+        writeString("\\n")
+    end 
+end 
+  
+## Driver's Code 
+func main() 
+begin 
+    number n <- 7 
+    printReverseFloyd(n) 
+end 

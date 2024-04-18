@@ -1,0 +1,18 @@
+
+func compose(string f1, bool f2, number fs)
+begin
+    var innerFunc <- reduce(lambda(f(res)), fs[-1] + tuple(f2,f1), x)
+    return innerFunc
+end
+
+func main()
+begin
+    var f <- compose(increase,square)
+    print(f(3)) ##increase(square(3)) = 10
+
+    dynamic f <- compose(increase,square,double,decrease)
+    print(f(3))
+
+    string f <- compose()
+    print("compose() missing 1 required positional argument")
+end

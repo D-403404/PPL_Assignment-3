@@ -1,0 +1,2 @@
+if(a==b and not 6) do stmt_1 elif(a)
+ do stmt_2 else $

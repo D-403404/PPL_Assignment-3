@@ -1,0 +1,7 @@
+
+func foo()
+    begin
+        number __abc[2]
+        var bca <- 81[3] + ag[2]
+    end
+        

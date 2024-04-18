@@ -1,0 +1,55 @@
+
+## Swap function
+func swap(number a, number b)
+begin
+    number temp <- a
+    a <- b
+    b <- temp
+end
+ 
+## An optimized version of Bubble Sort
+func bubbleSort(number arr, number n)
+begin
+    ## swapped variable to signal if there is a
+    ## swap happened in the inner loop
+    ## initially set to false
+    number i <- 0
+    for i until i >= n - 1 by 1 begin
+        ## swapped is initialized as false at the start
+        bool swapped <- false
+        number j <- 0
+        for j until j >= n - i - 1 by 1 begin
+            if (arr[j] > arr[j + 1]) begin
+                swap(arr + j, arr + j + 1)
+                ## swapped is set to true if the swap is
+                ## done
+                swapped <- true
+            end
+        end
+ 
+        ## If no two elements were swapped
+        ## by inner loop, then break
+        if (swapped == false)
+            break
+    end
+end
+ 
+## Function to print an array
+func printArray(number arr, number size)
+begin
+    number i <- 0
+    for i until i >= size by 1
+        writeString(arr[i])
+end
+ 
+## Driver code
+func main()
+begin
+    number arr[8] <- [5, 3, 1, 9, 8, 2, 4, 7]
+ 
+    ## bubbleSort function called
+    bubbleSort(arr, 8)
+ 
+    writeString("Sorted array: ")
+    printArray(arr, 8)
+end

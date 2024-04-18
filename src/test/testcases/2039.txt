@@ -1,0 +1,15 @@
+
+number a
+number b
+number c
+
+func foo(number a, string c, bool d)
+    begin
+        dynamic e
+        e <- a + 4
+        c <- a * d / 2.0
+        return c + 1
+    end
+
+func goo (number a, number b)
+    return foo(1, a, b)

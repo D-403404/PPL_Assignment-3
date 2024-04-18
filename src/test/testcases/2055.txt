@@ -1,0 +1,8 @@
+
+func lstSquare(number n)
+    return list(map(lambda(x * x), range(1, n + 1)))
+
+func main()
+begin
+    print(lstSquare(3.14159e37))
+end

@@ -1,0 +1,6 @@
+
+func foo()
+    begin
+        number x <- foo(abc,[E3,_21,])
+    end
+        

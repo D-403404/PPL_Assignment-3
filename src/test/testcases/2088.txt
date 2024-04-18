@@ -1,0 +1,56 @@
+ 
+## Returns true if the string is
+## pangram else false
+func checkPangram(string str)
+begin
+    ## Create a hash table to mark
+    ## the characters
+    ## present in the string
+    bool mark[26] <- [false]
+ 
+    ## For indexing in mark[]
+    number index
+ 
+    ## Traverse all characters
+    number i <- 0
+    for i until i >= length(str) by 1 begin
+ 
+        ## If uppercase character,
+        ## subtract 'A' to find index.
+        if (("A" <= str[i]) and (str[i] <= "Z"))
+            index <- str[i] - "A"
+ 
+        ## If lowercase character,
+        ## subtract 'a' to find index.
+        else if (("a" <= str[i]) and (str[i] <= "z"))
+            index <- str[i] - "a"
+ 
+        ## If this character is not
+        ## an alphabet, skip to next one.
+        else
+            continue
+ 
+        mark[index] <- true
+    end
+ 
+    ## Return false
+    ## if any character is unmarked
+    number i <- 0
+    for i until i > 25 by 1
+        if (mark[i] == false)
+            return (false)
+ 
+    ## If all characters were present
+    return (true)
+end
+ 
+## Driver Code
+func main()
+begin
+    string str <- "The quick brown fox jumps over the lazy dog"
+ 
+    if (checkPangram(str) == true)
+        writeString("Yes")
+    else
+        writeString("No")
+end

@@ -1,0 +1,12 @@
+
+func gcd(number a, number b)
+begin
+    if (a=b) return b
+    if (a>b) return gcd(a-b,b)
+    return gcd(a,b-a)
+end
+
+func main()
+begin
+    print(gcd(1071,462))
+end

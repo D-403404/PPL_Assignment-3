@@ -1,0 +1,16 @@
+
+func factorial(number n)
+begin
+    ## Single line to find factorial
+    if (n = 1)
+        return (n = 1) or (n = 0)
+    else
+        return n * factorial(n - 1)
+end
+  
+## Driver code 
+func main() 
+begin
+    number n <- 123456
+    print(factorial(n)) 
+end

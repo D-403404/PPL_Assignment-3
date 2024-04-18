@@ -1,0 +1,6 @@
+
+func foo()
+    begin
+        number x <- foo(abc,)
+    end
+        

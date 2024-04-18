@@ -1,0 +1,31 @@
+ 
+## Function to convert decimal
+## to binary
+func decToBinary(number n)
+begin
+    ## Array to store binary number
+    number binaryNum[32]
+ 
+    ## Counter for binary array
+    number i <- 0
+    for n until n <= 0 by -n/2
+    begin
+        ## Storing remainder in binary
+        ## array
+        binaryNum[i] <- n % 2
+        i <- i + 1
+    end
+ 
+    ## Printing binary array in reverse
+    ## order
+    number j <- i - 1
+    for j until j < 0 by -1
+        writeNumber(binaryNum[j])
+end
+ 
+## Driver code
+func main()
+begin
+    number n <- 10
+    decToBinary(n)
+end

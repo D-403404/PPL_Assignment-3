@@ -1,0 +1,51 @@
+ 
+## Function check whether a number
+## is prime or not
+func isPrime(number n)
+begin
+    ## Check if n=2 or n=3
+    if ((n == 2) or (n = 3))
+        return true
+    ## Check whether n is divisible by 2 or 3
+    if ((n % 2 =0) or (n % 3==0))
+        return false
+ 
+    ## Check from 5 to square root of n
+    ## Iterate i by (i+6)
+    number i <- 5
+    for  i until i * i > n by 6
+        if ((n % i == 0) or (n % (i + 2) == 0))
+            return false
+ 
+    return true
+end
+ 
+## Function for print prime
+## number in given range
+func primeInRange(number L, number R)
+begin
+ 
+    ## Skip 0 and 1 as they are
+    ## neither prime nor composite
+    ## and also if 2 is in range
+    ## then print it
+    if ((R >= 2) and (L <= 2)) begin
+        writeNumber(2)
+        L <- 3
+    end
+ 
+    ## Making sure that L is odd before
+    ## beginning the loop
+    if (L % 2 == 0)
+        L<-L+1
+ 
+    ## NOTE : We traverse through
+    ## odd numbers only
+    number i <- L
+    for i until i > R by 2 begin
+ 
+        ## If number is prime print it
+        if (isPrime(i))
+            writeNumber(i)
+    end
+end

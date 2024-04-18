@@ -1,0 +1,7 @@
+
+func foo()
+    begin
+        if ((x <= (y > z) ... "abc") ... ["xyz"...foo([[1,23,4],[2,"abc'"abc"]])])
+            return ---(--1)
+    end
+        

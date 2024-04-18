@@ -1,0 +1,7 @@
+
+func foo()
+    begin
+        if (not x)
+            return ---(--1)
+    end
+        

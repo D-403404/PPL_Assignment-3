@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(foo), [], Block([AssignStmt(Id(lst), CallExpr(Id(input), [])), CallStmt(Id(print), [CallExpr(Id(split), [StringLit(,)])]), CallStmt(Id(print), [CallExpr(Id(tuple), [CallExpr(Id(split), [StringLit(,)])])])])), FuncDecl(Id(main), [], Block([CallStmt(Id(print), [CallExpr(Id(gcd), [NumLit(1071.0), NumLit(462.0)])])]))])

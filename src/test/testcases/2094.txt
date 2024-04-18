@@ -1,0 +1,35 @@
+ 
+## Function to rotate array to the left by d times
+func Rotate(number arr, number d)
+begin
+    ## Storing rotated version of array
+    number temp[20]
+    number n <- size(arr)
+ 
+    ## Keeping track of the current index
+    ## of temp[]
+    number k <- 0
+ 
+    ## Storing the n - d elements of
+    ## array arr[] to the front of temp[]
+    number i <- d
+    for i until i >= n by 1 begin
+        temp[k] <- arr[i]
+        k<-k+1
+    end
+ 
+    ## Storing the first d elements of array arr[]
+    ##  into temp
+    i <- 0
+    for i until i >= d by 1 begin
+        temp[k] <- arr[i]
+        k<-1+k
+    end
+ 
+    ## Copying the elements of temp[] in arr[]
+    ## to get the final rotated array
+    i <- 0
+    for i until i >= n by 1 begin
+        arr[i] <- temp[i]
+    end
+end

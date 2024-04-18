@@ -1,0 +1,7 @@
+
+func foo()
+    begin
+        aPI <- 3.14\nvalue \n<- x%[foo(5)]
+        l[3] <- value * aPi
+    end
+        

@@ -1,0 +1,13 @@
+
+func area(number r)
+begin
+    return math_pi * r*r
+end
+
+func main()
+begin
+    res <- area(102.45)
+    expect <- 32974.164346060104
+    delta <- 0.000000001
+    print((res > expect - delta) and (res < expect + delta))
+end

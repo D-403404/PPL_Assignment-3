@@ -1,0 +1,29 @@
+
+## Works only if a >= 0  
+## and b >= 0  
+func pow(number a, number b)  
+begin  
+    if (b == 0)  
+        return 1  
+    number answer <- a  
+    number increment <- a  
+    number i
+    number j  
+    i <- 1
+    for i until i >= b by 1  
+    begin  
+        j <- 1
+        for j until j >= a by 1   
+        begin  
+            answer <- answer + increment  
+        end  
+        increment <- answer  
+    end  
+    return answer  
+end  
+  
+## Driver Code 
+func main()  
+begin  
+    writeNumber(pow(5, 3))
+end  

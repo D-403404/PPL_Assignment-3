@@ -1,0 +1,1 @@
+Program([VarDecl(Id(s), StringType, None, CallExpr(Id(writeString), [StringLit(Hello this is a '"test'")]))])

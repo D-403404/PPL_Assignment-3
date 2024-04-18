@@ -1,0 +1,24 @@
+ 
+## Function to check whether string
+## is palindrome
+func isPalindrome(string S)
+begin
+    ## Iterate over the range [0, N/2]
+    number i <- 0
+    for i until i >= length(S) / 2 by 1 begin
+ 
+        ## If S[i] is not equal to
+        ## the S[N-i-1]
+        if (S[i] != S[length(S) - i - 1]) begin
+            return "No"
+        end
+    end
+    return "Yes"
+end
+ 
+## Driver Code
+func main()
+begin
+    string S <- "_xyzYzyx_"
+    writeString(isPalindrome(S))
+end

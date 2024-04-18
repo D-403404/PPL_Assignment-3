@@ -1,0 +1,15 @@
+ 
+## Function to rotate array to the left by d times
+func Rotate(number arr, number d, number n)
+begin
+    number p <- 1
+    for p until p>d by 1
+    begin
+        number last <- arr[0]
+        number i <- 0
+        for i until i >= n - 1 by 1begin
+            arr[i] <- arr[i + 1]
+        end
+        arr[n - 1] <- last
+    end
+end

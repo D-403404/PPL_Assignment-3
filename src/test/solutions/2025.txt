@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(foo), [], Block([AssignStmt(Id(aPI), NumLit(3.14)), AssignStmt(Id(value), BinaryOp(%, Id(x), ArrayLit(CallExpr(Id(foo), [NumLit(5.0)])))), AssignStmt(ArrayCell(Id(l), [NumLit(3.0)]), BinaryOp(*, Id(value), Id(aPi)))]))])

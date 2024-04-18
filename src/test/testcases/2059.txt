@@ -1,0 +1,17 @@
+
+func reverseDigits(number num) 
+begin
+    number rev_num <- 0
+    for num until num <= 0 by -9*num/10
+    begin
+        rev_num <- rev_num * 10 + num % 10
+    end
+    return rev_num
+end
+  
+## Driver code 
+func main() 
+begin
+    number n <- 123456
+    print(reverseDigits(n)) 
+end

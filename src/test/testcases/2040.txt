@@ -1,0 +1,38 @@
+
+func partition(number arr, number start, number _end)
+begin
+	number pivot <- arr[start]
+
+	number count <- 0
+    i <- start + 1
+	for i until i > _end by 1
+		if (arr[i] <= pivot)
+			count <- count + 1
+
+	## Giving pivot element its correct position
+	number pivotIndex <- start + count
+	swap(arr[pivotIndex], arr[start])
+
+	## Sorting left and right parts of the pivot element
+    number i <- start
+    number j <- _end
+
+	return pivotIndex
+end
+
+func quickSort(number arr, number start, number _end)
+begin
+
+	## base case
+	if (start >= _end)
+		return
+
+	## partitioning the array
+	number p <- partition(arr, start, _end)
+
+	## Sorting the left part
+	quickSort(arr, start, p - 1)
+
+	## Sorting the right part
+	quickSort(arr, p + 1, _end)
+end

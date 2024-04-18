@@ -1,0 +1,3 @@
+func foo() {begin 
+var a <- 5 
+end}

@@ -1,0 +1,28 @@
+ 
+func replace(string s, string c1, string c2)
+begin
+    number l <- length(s)
+ 
+    ## loop to traverse in the string
+    number i <- 0
+    for i until i >= l by 1
+    begin
+        ## check for c1 and replace
+        if (s[i] == c1)
+            s[i] <- c2
+ 
+        ## check for c2 and replace
+        elif (s[i] == c2)
+            s[i] <- c1
+    end
+    return s
+end
+ 
+## Driver code
+func main()
+begin
+    string s <- "wwwwwwwwwwwwrrrrrrrrreyy"
+    string c1 <- "e"
+    string c2 <- "r"
+    writeString(replace(s, c1, c2))
+end

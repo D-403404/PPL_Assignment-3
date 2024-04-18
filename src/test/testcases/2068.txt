@@ -1,0 +1,45 @@
+
+func binomialCoeff(number n, number k) 
+  
+## Function to print first 
+## n lines of Pascal's  
+## Triangle 
+
+func printPascal(number n) 
+begin 
+    ## Iterate through every line and 
+    ## print entries in it 
+    number line <- 0 
+    for line until line >= n by 1
+    begin 
+        ## Every line has number of  
+        ## integers equal to line  
+        ## number 
+        number i <- 0
+        for i until i > line by 1 
+            writeString(" "...binomialCoeff(line, i))
+        writeString("\\n") 
+    end 
+end 
+  
+func binomialCoeff(number n, number k) 
+begin 
+    number res <- 1 
+    if (k > n - k) 
+        k <- n - k 
+    number i <- 0
+    for i until i >= k by 1 
+    begin 
+        res <- res * (n - i) 
+        res <- res / (i + 1) 
+    end 
+      
+    return res 
+end 
+  
+## Driver program  
+func main() 
+begin 
+    number n <- 7 
+    printPascal(n) 
+end 

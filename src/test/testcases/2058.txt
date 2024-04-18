@@ -1,0 +1,24 @@
+
+func fib(number n) 
+begin
+    number a <- 0
+    number b <- 1
+    number c
+    number i <- 2
+    if( n == 0) 
+        return a 
+    for i until i > n by 1 
+    begin
+       c <- a + b 
+       a <- b 
+       b <- c 
+    end
+    return b 
+end
+  
+## Driver code 
+func main() 
+begin
+    number n <- 9 
+    print(" "...fib(n)) 
+end

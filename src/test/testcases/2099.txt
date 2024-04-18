@@ -1,0 +1,13 @@
+ 
+## Print the multiplication table of a number up to a range
+func main()
+begin
+    ## Change here to change
+    ## input number
+    number n <- 8
+ 
+    number range <- readNumber()
+    number i <- 1
+    for i until i > range by 1
+        writeString((n ... (" * " ... i) )... (" = " ...(str( n * i)..."\\n")))
+end

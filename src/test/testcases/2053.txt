@@ -1,0 +1,15 @@
+
+func lessThan(number lst)
+begin
+    if (not lst)
+        return
+    if (lst[0] < n)
+        return [lst[0]] + lessThan(lst[tail],n)
+    return lessThan(lst[tail],n)
+end
+
+func main()
+begin
+    print(lessThan([1,2,3,-1,0],6))
+    print(lessThan([1,2,3,4,5],4))
+end

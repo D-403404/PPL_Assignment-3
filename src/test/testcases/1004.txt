@@ -1,0 +1,7 @@
+
+for i until i > x / 2 by 1
+begin
+
+end
+
+                

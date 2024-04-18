@@ -1,0 +1,8 @@
+
+
+func foo()
+begin
+askdjas <- 123.e-3
+if (abc) 
+number foo() <- 8910
+end

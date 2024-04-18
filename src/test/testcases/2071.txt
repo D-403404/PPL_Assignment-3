@@ -1,0 +1,52 @@
+
+##Swap function 
+func swap(number xp, number yp)  
+begin  
+    number temp <- xp  
+    xp <- yp  
+    yp <- temp  
+end  
+  
+func selectionSort(number arr, number n)  
+begin  
+    number i
+    number j
+    number min_idx  
+  
+    ## One by one move boundary of  
+    ## unsorted subarray  
+    i <- 0
+    for i until i >= n-1 by 1 
+    begin  
+        
+        ## Find the minimum element in  
+        ## unsorted array  
+        min_idx <- i  
+        j <- i+1
+        for j until j >= n by 1
+        if (arr[j] < arr[min_idx])  
+            min_idx <- j  
+  
+        ## Swap the found minimum element  
+        ## with the first element  
+        swap(arr[min_idx], arr[i])  
+    end  
+end  
+  
+##Function to print an array 
+func printArray(number arr, number size)  
+begin  
+    number i <- 0
+    for i until i >= size by 1 
+        writeString(arr[i] ... " ")  
+    writeString("\\n")  
+end  
+  
+## Driver program to test above functions  
+func main()  
+begin  
+    number arr[8] <- [64, 25, 12, 22, 11, 33, 69, 42]  
+    selectionSort(arr, 8)  
+    writeString("Sorted array: ")  
+    printArray(arr, 8)  
+end  

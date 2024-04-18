@@ -1,0 +1,6 @@
+
+func foo()
+    begin
+        if (a < b) if (c < d) bool e
+    end
+        

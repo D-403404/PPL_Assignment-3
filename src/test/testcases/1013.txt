@@ -1,0 +1,5 @@
+func foo()
+        begin
+        string c <- "\???mmp"
+        end
+        

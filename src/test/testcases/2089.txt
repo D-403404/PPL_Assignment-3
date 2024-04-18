@@ -1,0 +1,32 @@
+ 
+func split(string str, string del)
+begin
+    ## declaring temp string to store the curr "word" upto del
+    string temp <- ""
+
+    number i <- 0
+    for i until i >= size(str) by 1
+    begin
+        ## If cur char is not del, then append it to the cur "word", otherwise
+        ## you have completed the word, print it, and start a new word
+        if (str[i] != del)
+        begin
+            temp <- temp +str[i]
+        end
+        else
+        begin
+            writeString(temp ... " ")
+            temp <- ""
+        end
+    end
+       
+    writeString(temp)
+end
+ 
+func main() begin
+ 
+    string str <- "abc.xyz.mno.ghi.abcdefu.s.a"    ## string to be split
+    dynamic del <- "."    ## delimiter around which string is to be split
+   
+    split(str, del)
+end

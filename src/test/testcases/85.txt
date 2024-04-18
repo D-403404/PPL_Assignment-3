@@ -1,0 +1,2 @@
+fetch(data)
+        if(not data) cout << '404 NOT FOUND' 

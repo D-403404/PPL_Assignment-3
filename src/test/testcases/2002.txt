@@ -1,0 +1,9 @@
+
+func main ()
+begin
+    if (1)
+        b()
+    elif (2)
+        c()
+    else d()
+end

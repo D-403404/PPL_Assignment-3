@@ -1,0 +1,12 @@
+
+func lstSquare(number n)
+begin
+    if (n = 0)
+        return
+    return lstSquare(n - 1) + [n * n]
+end
+
+func main()
+begin
+    print(lstSquare(3.14159e37))
+end

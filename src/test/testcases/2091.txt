@@ -1,0 +1,32 @@
+ 
+func remove_all_occurrence(number arr, number target, number n)
+begin
+    number cnt <- 0
+    
+    ## Shifting non target elements 
+    ## to the left side
+    number i <- 0
+    for i until i >= n by 1
+    begin
+        if(arr[i] != target)
+            arr[i - cnt] <- arr[i] 
+        else
+            cnt <- 1+cnt
+    end
+    
+    ## Printing the array
+    number i <- 0
+    for i until i >= n - cnt by 1
+    begin
+        writeString(arr[i] ... " ")
+    end
+    return
+end
+ 
+## Driver code
+func main() 
+begin
+    number arr[11] <- [1, 4, 3, 6, 8, 3, 9, 10, 3, 3, 7]
+    number target <- 3
+    remove_all_occurrence(arr, target, 11)
+end

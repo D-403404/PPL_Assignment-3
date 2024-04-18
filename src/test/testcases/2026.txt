@@ -1,0 +1,4 @@
+
+string a[3] <- 1 * (2 + 3)
+bool b[4.3,3e4] <- false
+        

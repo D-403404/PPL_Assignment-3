@@ -1,0 +1,8 @@
+
+func foo()
+begin
+number i[-5e-4] <- [abc]
+for i until i >= 10 by 1
+writeNumbe(i)
+end
+        

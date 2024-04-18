@@ -1,0 +1,11 @@
+
+func sum_of_cube(number n)
+begin
+    if (n == 1) return 0
+    return (n-1)*(n-1)*(n-1) + sum_of_cube(n-1)
+end
+
+func main()
+begin
+    print(sum_of_cube(12))
+end

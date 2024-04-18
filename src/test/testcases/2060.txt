@@ -1,0 +1,16 @@
+
+func factorial(number n)
+begin
+    number res <- 1
+    number i <- 2
+    for i until i > n by 1
+        res <- res * i
+    return res
+end
+  
+## Driver code 
+func main() 
+begin
+    number n <- 123456
+    print(factorial(n)) 
+end

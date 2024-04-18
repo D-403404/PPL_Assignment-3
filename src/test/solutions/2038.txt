@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(goo), [VarDecl(Id(a), NumberType, None, None), VarDecl(Id(b), NumberType, None, None)], Return(BinaryOp(-, NumLit(1.0), CallExpr(Id(foo), [NumLit(1.0), Id(a), Id(b)]))))])

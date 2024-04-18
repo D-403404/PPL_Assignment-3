@@ -1,0 +1,2 @@
+func main () return (expr1 * expr2 == abc..."xyz"..."mno")
+        

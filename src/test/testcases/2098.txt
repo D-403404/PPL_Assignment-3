@@ -1,0 +1,22 @@
+ 
+## Function to print the divisors 
+func printDivisors(number n) 
+begin 
+    ## Note that this loop runs  
+    ## till square root 
+    number i <- 1
+    for i until i > sqrt(n) by 1 
+    begin 
+        if (n % i == 0) 
+        begin 
+            ## If divisors are equal,  
+            ## print only one 
+            if (n / i == i) 
+                writeString(" "... i )
+  
+            ## Otherwise print both 
+            else 
+                writeString((" "... i) ... (" " ...str( n / i)) )
+        end 
+    end 
+end 

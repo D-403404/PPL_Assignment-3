@@ -1,0 +1,42 @@
+
+func binarySearch(number arr, number low, number high, number x) 
+begin 
+    ## Base case: If the search space becomes empty, the 
+    ## element is not present in the array 
+    if (high >= low) begin 
+        ## Calculate the middle index to divide the search 
+        ## space in half 
+        number mid <- low + (high - low) / 2 
+  
+        ## If the middle element is equal to 'x', we have 
+        ## found the element, return its index 
+        if (arr[mid] == x) 
+            return mid 
+  
+        ## If the middle element is greater than 'x', search 
+        ## in the left half of the array 
+        if (arr[mid] > x) 
+            return binarySearch(arr, low, mid - 1, x) 
+  
+        ## If the middle element is less than 'x', search in 
+        ## the right half of the array 
+        return binarySearch(arr, mid + 1, high, x) 
+    end 
+  
+    ## If the base case is reached, the element is not 
+    ## present in the array, return -1 
+    return -1 
+end 
+  
+## Driver code 
+func main() 
+begin 
+    number arr[5] <- [2, 3, 4, 10, 40]
+    number x <- 10
+   
+    number result <- search(arr, 5, x)
+    if (result == -1) 
+        writeString("Element is not present in array" )
+    else
+        writeString("Element is present at index " ... str(result))
+end

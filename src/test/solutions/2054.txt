@@ -1,0 +1,1 @@
+Program([FuncDecl(Id(lstSquare), [VarDecl(Id(n), NumberType, None, None)], Block([If((BinaryOp(=, Id(n), NumLit(0.0)), Return()), [], None), Return(BinaryOp(+, CallExpr(Id(lstSquare), [BinaryOp(-, Id(n), NumLit(1.0))]), ArrayLit(BinaryOp(*, Id(n), Id(n)))))])), FuncDecl(Id(main), [], Block([CallStmt(Id(print), [CallExpr(Id(lstSquare), [NumLit(3.14159e+37)])])]))])

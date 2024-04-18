@@ -1,0 +1,3 @@
+
+func goo (number a, number b)
+    return

@@ -1,0 +1,12 @@
+
+func foo()
+begin
+    lst <- input()
+    print(split(","))
+    print(tuple(split(",")))
+end
+
+func main()
+begin
+    print(gcd(1071,462))
+end

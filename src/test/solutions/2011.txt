@@ -1,0 +1,1 @@
+Program([VarDecl(Id(array), ArrayType([1.0, 2.0, 3.0, 1.0], StringType), None, ArrayLit(NumLit(3.0), StringLit(abcd), NumLit(5.0), BooleanLit(True), Id(True), Id(False), BooleanLit(False)))])

@@ -1,0 +1,9 @@
+
+func reverse(string str, number index, number n)  
+begin 
+    if(index == n)      ## return if we reached at last index or at the end of the string 
+        return 
+    string temp <- str[index]    ## storing each character starting from index 0 in function call stack 
+    reverse(str, index+1, n)  ## calling recursive function by increasing index everytime 
+    writeString(temp)              ## printing each stored character while recurring back 
+end 

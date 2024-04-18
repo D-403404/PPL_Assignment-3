@@ -1,0 +1,35 @@
+
+## Driver code 
+func main()
+begin
+    number ord1
+    number ord2
+    number ord3
+    number total_sum
+ 
+    writeString("All the Armstrong numbers between 1 to 1000 : ")
+   
+    ## Loop which will run from 1 to 1000
+    number num <- 1
+    for num until num > 1000 by 1
+    begin
+        ## All the single-digit numbers are
+        ## armstrong number.
+        if (num <= 9)
+        begin
+            writeString(num ... " ")
+        end
+        else
+        begin
+            ord1 <- num % 10
+            ord2 <- (num % 100 - ord1) / 10
+            ord3 <- (num % 1000 - ord2) / 100
+ 
+            total_sum <- ((ord1 * ord1 * ord1) + (ord2 * ord2 * ord2) + (ord3 * ord3 * ord3))
+            if (total_sum == num)
+            begin
+                writeString(num ... " ")
+            end
+        end
+    end
+end

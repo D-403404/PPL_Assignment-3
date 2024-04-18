@@ -1,0 +1,7 @@
+
+func foo()
+    begin
+        if ((x <= (y > z) ... "abc") ... ["xyz"...foo()])
+            return ---(--1)
+    end
+        
