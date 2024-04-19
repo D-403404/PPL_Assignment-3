@@ -639,11 +639,11 @@ class StaticChecker(BaseVisitor, Utils):
 
         for expr in ast.value:
             expr_typ = self.visit(expr, param)
-            print(f'expr_typ: {expr_typ} of {expr}')
+            print(f'expr_typ: {expr_typ} of {expr} in {ast}')
             expr_check = self.checkType(ast, expr, expr_typ, arrayele_typ, param)
             if expr_check is None:
                 return None
-            expr_typ = arrayele_typ
+            # expr_typ = arrayele_typ
 
             # if expr_typ is None:  # infer type
             #     if type(expr) in [Id, CallExpr, ArrayLiteral]:
