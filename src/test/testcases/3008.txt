@@ -1,0 +1,4 @@
+
+        func main()
+            number arr[2,2] <- [[3,5],4]
+        

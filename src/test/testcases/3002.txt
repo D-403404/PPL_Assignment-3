@@ -1,0 +1,15 @@
+
+        func foo()
+        number foo
+
+        func main()
+        begin
+            foo()
+            return
+        end
+
+        func foo()
+        begin
+            number a
+        end
+        

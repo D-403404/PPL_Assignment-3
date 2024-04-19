@@ -90,6 +90,27 @@ end
         expect = "Program([VarDecl(Id(a), NumberType, None, NumLit(100.0)), FuncDecl(Id(sum), [VarDecl(Id(n), NumberType, None, None)], Block([If((BinaryOp(=, Id(n), NumLit(0.0)), Return(NumLit(0.0))), [], None), Return(BinaryOp(+, Id(n), CallExpr(Id(sum), [BinaryOp(-, Id(n), NumLit(1.0))])))])), FuncDecl(Id(main), [], Block([CallStmt(Id(writeNumber), [CallExpr(Id(sum), [Id(a)])])]))])"
         self.assertTrue(TestAST.test(input, expect, 307))
 
+    def test_603(self):
+        input = """
+func main()
+begin
+    var x <- [[[[1, 2]], [3, 4, 5]], [[6, 7, 8], [9, 10, 11]]]
+    writeNumber(x)
+end
+"""
+        expect = "Program([FuncDecl(Id(main), [], Block([VarDecl(Id(x), None, var, ArrayLit(ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), NumLit(2.0))), ArrayLit(NumLit(3.0), NumLit(4.0), NumLit(5.0))), ArrayLit(ArrayLit(NumLit(6.0), NumLit(7.0), NumLit(8.0)), ArrayLit(NumLit(9.0), NumLit(10.0), NumLit(11.0))))), CallStmt(Id(writeNumber), [Id(x)])]))])"
+        self.assertTrue(TestAST.test(input, expect, 603))
+    
+    def test_3006(self):
+        input = """
+        func main()
+        begin
+            number arr[2] <- [3,4]
+        end
+"""
+        expect = "Program([FuncDecl(Id(main), [], Block([VarDecl(Id(arr), ArrayType([2.0], NumberType), None, ArrayLit(NumLit(3.0), NumLit(4.0)))]))])"
+        self.assertTrue(TestAST.test(input, expect, 3006))
+
 #===============================================================
         
     def test_1(self):

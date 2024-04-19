@@ -1,0 +1,8 @@
+
+        dynamic a
+        dynamic b
+        dynamic c
+        number arr[2,2] <- [[a,b],[3,4]]
+        func main()
+            return
+        
