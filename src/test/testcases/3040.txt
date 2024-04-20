@@ -1,0 +1,17 @@
+
+        func foo(string a)
+        func foo1(string b)
+        
+        func foo1(string b)
+        begin
+            return 2
+        end
+
+        ##func foo(number a, string b)
+        
+        func main()
+        begin
+            foo1("x")
+        end
+
+        

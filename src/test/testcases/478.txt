@@ -1,0 +1,22 @@
+ func resultAppend(number a)
+                        return
+                    func generateRandomIntegers(number startRange, number endRange, number count)
+                    begin
+                        number result <- 0
+                        var i <- 1
+                        for i until i = count by 1
+                            resultAppend(1)
+                        return result
+                    end
+
+                    func main()
+                    begin
+                        number startRange <- readNumber()
+                        number endRange <- readNumber()
+                        number count <- readNumber()
+
+                        number randomIntegers <- generateRandomIntegers(startRange, endRange, count)
+
+                        writeNumber(randomIntegers)
+                    end
+        

@@ -1,0 +1,25 @@
+ func addFractions(number a, number b)
+                        return a + b
+
+                    func subtractFractions(number a, number b)
+                        return a - b
+
+                    func multiplyFractions(number a, number b)
+                        return a * b
+
+                    func divideFractions(number a, number b)
+                        return a / b
+
+                    func main()
+                    begin
+                        number num1 <- readNumber()
+                        number num2 <- readNumber()
+
+                        number addResult <- addFractions(num1, num2)
+                        number subtractResult <- subtractFractions(num1, num2)
+                        number multiplyResult <- multiplyFractions(num1, num2)
+                        number divideResult <- divideFractions(num1, num2)
+
+                        writeNumber(addResult)
+                    end
+        

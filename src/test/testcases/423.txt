@@ -1,0 +1,10 @@
+ number main <- 5
+
+                    func main()
+                    begin
+                        main <- (7 + 10) * 2 / 3 + 1
+                        number b <- main / 2
+                    end
+
+                    func main()
+        

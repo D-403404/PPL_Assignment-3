@@ -1,0 +1,40 @@
+ func map(number a, number b)
+                        return a % b
+                    func sin(number a)
+                        return a
+                    func cos(number a)
+                        return a
+                    func pow(number a, number b)
+                        return a * b
+                    func sqrt(number a)
+                        return a / 2
+                    func atan(number a)
+                        return a * 2
+                    func atan2(number a, number b)
+                        return a * 2 + 2
+                    func calculateDistance(number lat1, number lon1, number lat2, number lon2)
+                    begin
+                        number R <- 6371.0
+                        number radians <- 1234
+                        number lat1 <- map(radians, lat1)
+                        number lot1 <- map(radians, lot1)
+                        number lat2 <- map(radians, lat2)
+                        number lot2 <- map(radians, lot2)
+                        number dlat <- lat2 - lat1
+                        number dlon <- lon2 - lon1
+                        number a <- pow(sin(dlat / 2), 2) + cos(lat1) * cos(lat2) * pow(sin(dlon / 2), 2)
+                        number c <- 2 * atan2(sqrt(a), sqrt(1 - a))
+                        number distance <- R * c
+                        return distance
+                    end
+
+                    func main()
+                    begin
+                        number lat1 <- readNumber()
+                        number lon1 <- readNumber()
+                        number lat2 <- readNumber()
+                        number lon2 <- readNumber()
+                        number result <- calculateDistance(lat1, lon1, lat2, lon2)
+                        writeNumber(result)
+                    end
+        

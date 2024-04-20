@@ -1,2 +1,6 @@
-var a <- true[3,4]
+ number b <- 5
+                    func a(number a, number b)
+                    begin
+                        print("Hello world!")
+                    end
         

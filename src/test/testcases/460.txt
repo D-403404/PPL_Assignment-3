@@ -1,0 +1,16 @@
+ func length(string a)
+                        return 5
+                    func printAllPermutations(string inputStr)
+                    begin
+                        string perms <- inputStr
+                        number i <- 0
+                        for i until i = length(perms) by 1
+                            writeString("" ... perms)
+                    end
+
+                    func main()
+                    begin
+                        string userInput <- readString()
+                        printAllPermutations(userInput)
+                    end
+        

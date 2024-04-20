@@ -1,0 +1,10 @@
+ func splitStringOnHyphens(string inputString)
+                        return "-"
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- splitStringOnHyphens(userString)
+                        writeString("Split result:")
+                    end
+        

@@ -1,0 +1,14 @@
+ func power(number a, number b)
+                        return a * b
+                    
+                    func calculatePower(number base, number exponent)
+                        return power(base, exponent)
+
+                    func main()
+                    begin
+                        number userBase <- readNumber()
+                        number userExponent <- readNumber()
+                        number result <- calculatePower(userBase, userExponent)
+                        writeString("The result is: {}")
+                    end
+        

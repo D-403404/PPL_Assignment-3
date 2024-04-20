@@ -1,0 +1,14 @@
+
+        func foo(string a)
+        
+        func foo(string a)
+        begin
+            return "Hello World"
+        end
+        
+        func main()
+        begin
+            foo()
+        end
+
+        

@@ -1,0 +1,18 @@
+ func length(string a)
+                        return 5
+                    func reverseString(string inputString)
+                    begin
+                        string reversedString <- ""
+                        number char <- 0
+                        for char until char = length(inputString) by 1
+                            reversedString <- reversedString
+                        return reversedString
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- reverseString(userString)
+                        writeString("Reversed string:")
+                    end
+        

@@ -1,0 +1,14 @@
+ string b <- "hello"
+        
+                    func add(number a, number b)
+                    begin
+                        return a + b
+                    end
+                    
+                    func main()
+                    begin
+                        number a <- 5
+                        number b <- 5
+                        number c <- add(a, b) + 5
+                    end
+        

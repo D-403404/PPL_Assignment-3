@@ -1,0 +1,20 @@
+ func len(string a)
+                        return 5
+                    func floor(number a)
+                        return a
+                    func extractFirstMiddleLastCharacters(string inputString)
+                    begin
+                        number length <- len(inputString)
+                        string firstChar <- inputString
+                        string middleChar <- inputString ... floor(length / 2)
+                        string lastChar <- inputString
+                        return (firstChar ... middleChar) ... lastChar
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- extractFirstMiddleLastCharacters(userString)
+                        writeString("Resulting string:")
+                    end
+        

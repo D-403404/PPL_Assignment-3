@@ -1,0 +1,13 @@
+
+        func main()
+        func foo()
+        begin
+            number a
+            for a until a = 123 by -3
+                writeString("123")
+            main()
+        end
+
+        func main()
+            return
+        

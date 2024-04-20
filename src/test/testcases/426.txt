@@ -1,0 +1,12 @@
+ func foo(number a)
+
+                    func main()
+                    begin
+                        foo(5)
+                    end
+
+                    func foo(number a)
+                    begin
+                        return "hello"
+                    end
+        

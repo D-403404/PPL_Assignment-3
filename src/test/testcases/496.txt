@@ -1,0 +1,10 @@
+ func isTrue()
+                    func main()
+                    begin
+                        dynamic a <- isTrue()
+                        dynamic b <- a
+                    end
+
+                    func isTrue()
+                        return true
+        

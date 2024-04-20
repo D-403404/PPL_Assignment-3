@@ -1,0 +1,27 @@
+ func flipCoin()
+                        return true
+
+                    func countHeadsAndTails(number numFlips)
+                    begin
+                        number headsCount <- 0
+                        number tailsCount <- 0
+                        var i <- 0
+                        for i until i = numFlips by 1
+                        begin
+                            bool result <- flipCoin()
+                            if (result)
+                                headsCount <- headsCount + 1
+                            else
+                                tailsCount <- tailsCount + 1
+                        end
+                        return [headsCount, tailsCount]
+                    end
+
+                    func main()
+                    begin
+                        number numFlips <- 1000
+                        number nums[2] <- countHeadsAndTails(numFlips)
+                        writeNumber(nums[0])
+                        writeNumber(nums[1])
+                    end
+        

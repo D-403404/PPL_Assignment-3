@@ -103,12 +103,19 @@ end
     
     def test_3006(self):
         input = """
+        number a[1,2] <- [[0.0,0e2]]
+        func incr(number x)
+            return x + 100
         func main()
         begin
-            number arr[2] <- [3,4]
+            dynamic b
+            number d
+            number c <- a[b,incr(d)]
+            b <- incr(b)
+            d <- "String"
         end
 """
-        expect = "Program([FuncDecl(Id(main), [], Block([VarDecl(Id(arr), ArrayType([2.0], NumberType), None, ArrayLit(NumLit(3.0), NumLit(4.0)))]))])"
+        expect = "Program([VarDecl(Id(a), ArrayType([1.0, 2.0], NumberType), None, ArrayLit(ArrayLit(NumLit(0.0), NumLit(0.0)))), FuncDecl(Id(incr), [VarDecl(Id(x), NumberType, None, None)], Return(BinaryOp(+, Id(x), NumLit(100.0)))), FuncDecl(Id(main), [], Block([VarDecl(Id(b), None, dynamic, None), VarDecl(Id(d), NumberType, None, None), VarDecl(Id(c), NumberType, None, ArrayCell(Id(a), [Id(b), CallExpr(Id(incr), [Id(d)])])), AssignStmt(Id(b), CallExpr(Id(incr), [Id(b)])), AssignStmt(Id(d), StringLit(String))]))])"
         self.assertTrue(TestAST.test(input, expect, 3006))
 
 #===============================================================

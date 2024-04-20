@@ -1,0 +1,14 @@
+ func calculateSum(number current, number previous)
+                        return current + previous
+
+                    func main()
+                    begin
+                        number previous <- 0
+                        var i <- 1
+                        for i until i = 11 by 1
+                            number current <- i
+                            number result <- calculateSum(current, previous)
+                            writeString("Sum of {} and {} is: {}")
+                            previous <- current
+                    end
+        

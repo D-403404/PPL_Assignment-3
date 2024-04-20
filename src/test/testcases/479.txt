@@ -1,0 +1,16 @@
+ func shuffle(number a)
+                    begin
+
+                    end
+                    func shuffleElements(number elements)
+                    begin
+                        shuffle(elements)
+                    end
+
+                    func main()
+                    begin
+                        number inputElements <- readNumber()
+                        shuffleElements(inputElements)
+                        writeNumber(inputElements)
+                    end
+        

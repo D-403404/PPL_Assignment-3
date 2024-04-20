@@ -1,0 +1,10 @@
+ func convertFloatToRatio(number floatNum)
+                        return floatNum
+
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+                        number result <- convertFloatToRatio(userInput)
+                        writeNumber(result)
+                    end
+        

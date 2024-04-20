@@ -1,0 +1,8 @@
+
+        func main()
+        begin
+            number a
+            for a until a = 123 by -3
+                a <- readNumber()
+        end
+        

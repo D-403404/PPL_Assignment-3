@@ -1,8 +1,3 @@
-
-func main()
-func main1()
-    begin
-        func main2()
-            return
-    end
+ number b
+                    number c <- a
         

@@ -1,0 +1,12 @@
+ func foo(number a, number b)
+                    begin
+                        return a + b
+                    end
+
+                    func main()
+                    begin
+                        number a
+                        number b
+                        foo(a, b)
+                    end
+        

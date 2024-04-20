@@ -1,0 +1,5 @@
+ func main()
+                    begin
+                        dynamic a <- a > 1
+                    end
+        

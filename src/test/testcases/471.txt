@@ -1,0 +1,20 @@
+ func polar(number a)
+                        return [1, 2]
+                    func getComplexNumberLengthAndAngle(number num)
+                    begin
+                        number nums[2] <- polar(num)
+                        return nums
+                    end
+
+                    func main()
+                    begin
+                        number real <- readNumber()
+                        number imag <- readNumber()
+                        number complexNum <- real * imag
+
+                        number nums[2] <- getComplexNumberLengthAndAngle(complexNum)
+
+                        writeNumber(nums[0])
+                        writeNumber(nums[1])
+                    end
+        

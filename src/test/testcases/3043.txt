@@ -1,0 +1,14 @@
+
+        
+        
+        func main()
+        begin
+            dynamic a
+            dynamic b
+            dynamic c
+            bool d[2,3] <- [a,[true, false, d]]
+            a <- 3
+            b <- false
+        end
+
+        

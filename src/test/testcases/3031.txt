@@ -1,0 +1,21 @@
+
+            func foo(string s)
+            begin
+                if (s == "abc") return s
+                if (s == "xyz") return "x"
+                elif ((s..."abc") == "xxxabc") return true
+                else
+                    begin
+                        var x <- "string"
+                        return x
+                        return 123
+                    end
+            end
+
+            func main()
+            begin
+    
+                dynamic c <- foo()
+            end
+
+        

@@ -1,0 +1,19 @@
+ func pow(number a, number b)
+                        return a * b
+                    func sqrt(number a)
+                        return a
+                    func abs(number a)
+                        return a
+                    func calculateHypotenuse(number a, number b)
+                        return sqrt(pow(a, 2) + pow(b, 2))
+
+                    func main()
+                    begin
+                        number sideA <- readNumber()
+                        number sideB <- readNumber()
+                        
+                        number hypotenuse <- calculateHypotenuse(sideA, sideB)
+                        
+                        writeString("The length of the hypotenuse is: {}")
+                    end
+        

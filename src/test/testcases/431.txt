@@ -1,0 +1,17 @@
+ func checkNumber(number intValue)
+                    begin
+                        if (intValue > 0)
+                            return "Positive"
+                        elif (intValue < 0)
+                            return "Negative"
+                        else
+                            return "Zero"
+                    end
+
+                    func main()
+                    begin
+                        number intValue <- readNumber()
+                        string result <- checkNumber(intValue)
+                        writeString("The number is:")
+                    end
+        

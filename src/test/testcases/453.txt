@@ -1,0 +1,20 @@
+ func length(string a)
+                        return 5
+                    func removeSpecialSymbols(string inputString)
+                    begin
+                        string result <- ""
+                        string symbols <- "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
+                        number char <- 0
+                        for char until char = length(inputString) by 1
+                            if (symbols == "hi")
+                                result <- result ... "gud"
+                        return result
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- removeSpecialSymbols(userString)
+                        writeString("Result after removing special symbols:")
+                    end
+        

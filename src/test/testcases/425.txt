@@ -1,0 +1,8 @@
+ func foo(string s)
+
+                    func main()
+                    begin
+                        number a <- foo("hi there")
+                        foo("print this line")
+                    end
+        

@@ -1,0 +1,15 @@
+ func bin(number a)
+                        return 010101
+                    func convertDecimalToBinary(number decimalNum)
+                    begin
+                        number binaryNum <- bin(decimalNum)
+                        return binaryNum
+                    end
+
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+                        number result <- convertDecimalToBinary(userInput)
+                        writeNumber(result)
+                    end
+        

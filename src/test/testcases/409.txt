@@ -1,0 +1,7 @@
+ number a <- 1
+                    func main()
+                    begin
+                        string a <- "hello"
+                        string b <- a + 3
+                    end
+        

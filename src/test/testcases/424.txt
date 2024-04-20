@@ -1,0 +1,12 @@
+ number foo <- 5
+
+                    func foo(number a, number b)
+                    begin
+                        return a / a
+                    end
+
+                    func main()
+                    begin
+                        foo <- (foo(5, 4) + foo) / foo - foo(1, 1.345)
+                    end
+        

@@ -1,0 +1,19 @@
+ func printMultiplicationTable()
+                    begin
+                        number i <- 1
+                        number j <- 1
+                        for i until i = 11 by 1
+                        begin
+                            for j until j = 11 by 1
+                            begin
+                                number result <- i * j
+                                writeNumber(result)
+                            end
+                        end
+                    end
+
+                    func main()
+                    begin
+                        printMultiplicationTable()
+                    end
+        

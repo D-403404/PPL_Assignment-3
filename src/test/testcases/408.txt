@@ -1,0 +1,5 @@
+ func main()
+                    begin
+                        number a <- a + 1
+                    end
+        

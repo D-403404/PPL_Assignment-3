@@ -1,0 +1,13 @@
+ func formatNumberWithCommas(number num)
+                    begin
+                        number result <- num
+                        return result
+                    end
+
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+                        number formattedNumber <- formatNumberWithCommas(userInput)
+                        writeNumber(formattedNumber)
+                    end
+        

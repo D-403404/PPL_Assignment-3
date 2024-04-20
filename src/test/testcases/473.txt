@@ -1,0 +1,9 @@
+
+            func main()
+            begin
+                
+                number b[6] <- [1,2,3,4,5]
+                dynamic c <- b 
+            end
+
+        

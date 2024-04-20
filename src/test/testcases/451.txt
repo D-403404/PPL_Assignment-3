@@ -1,0 +1,20 @@
+ func fullStringFind(string substring, number a)
+                        return 2
+                    func findLastPosition(string substring, string fullString)
+                    begin
+                        number lastPosition <- -1
+                        number index <- 1
+                        var i <- 1
+                        for i until i = -1 by fullStringFind(substring, index + 1)
+                            lastPosition <- index
+                        return lastPosition
+                    end
+
+                    func main()
+                    begin
+                        string userSubstring <- readString()
+                        string userFullString <- readString()
+                        number result <- findLastPosition(userSubstring, userFullString)
+                        writeString("Last position of the substring:")
+                    end
+        

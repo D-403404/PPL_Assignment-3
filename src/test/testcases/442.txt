@@ -1,0 +1,18 @@
+ func floor(number a)
+                        return a
+                    
+                    func extractDigitsInReverseOrder(number num)
+                    begin
+                        number reversedDigits <- 0
+                        for num until num < 0 by floor(num / 10)
+                            number digit <- num % 10
+                        return reversedDigits
+                    end
+
+                    func main()
+                    begin
+                        number userNumber <- readNumber()
+                        number result <- extractDigitsInReverseOrder(userNumber)
+                        writeString("Digits in reverse order:")
+                    end
+        

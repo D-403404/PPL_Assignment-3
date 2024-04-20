@@ -1,0 +1,7 @@
+ func main()
+                    begin
+                        number i <- 3
+                        if (i)
+                            return true
+                    end
+        

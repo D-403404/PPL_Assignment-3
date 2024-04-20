@@ -1,0 +1,9 @@
+ func main()
+                    begin
+                        dynamic a
+                        number i <- 3
+                        for a until i > i / 2 by i
+                            break
+                        bool b <- a
+                    end
+        

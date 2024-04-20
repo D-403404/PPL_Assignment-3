@@ -1,0 +1,11 @@
+ func main()
+                    begin
+                        number b
+                        dynamic a
+                        if (a)
+                            b <- 1
+                        else
+                            b <- 2
+                        number c <- a
+                    end
+        

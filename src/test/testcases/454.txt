@@ -1,0 +1,19 @@
+ func length(string a)
+                        return 5
+                    func keepOnlyIntegers(string inputString)
+                    begin
+                        string result <- ""
+                        number char <- 0
+                        for char until char = length(inputString) by 1
+                            if (char = 0)
+                                result <- result
+                        return result
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- keepOnlyIntegers(userString)
+                        writeString("Result after keeping only integers:")
+                    end
+        

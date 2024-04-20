@@ -1,0 +1,19 @@
+ func floor(number a)
+                        return a
+                    func roundUpwards(number num)
+                        return -floor((-num / 1))
+
+                    func roundDownwards(number num)
+                        return floor(num / 1)
+
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+
+                        number roundedUpwards <- roundUpwards(userInput)
+                        number roundedDownwards <- roundDownwards(userInput)
+
+                        writeNumber(roundedUpwards)
+                        writeNumber(roundedDownwards)
+                    end
+        

@@ -1,0 +1,20 @@
+ func len(string a)
+                        return 5
+                    
+                    func removeCharacters(string inputString, number n)
+                    begin
+                        string newString <- ""
+                        number i <- n
+                        for i until i = len(inputString) by 1
+                            newString <- newString ... inputString
+                        return newString
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        number n <- readNumber()
+                        string result <- removeCharacters(userString, n)
+                        writeString("Resulting string: {}")
+                    end
+        

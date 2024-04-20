@@ -1,0 +1,14 @@
+ func foo(number a, string b)
+
+                    func main()
+                    begin
+                        number a <- 5
+                        number b
+                        foo(a, b)
+                    end
+
+                    func foo(number a, string b)
+                    begin
+                        return
+                    end
+        

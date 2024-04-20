@@ -1,0 +1,11 @@
+ func areStringsBalanced(string s1, string s2)
+                        return s1 == s2
+
+                    func main()
+                    begin
+                        string string1 <- readString()
+                        string string2 <- readString()
+                        bool result <- areStringsBalanced(string1, string2)
+                        writeString("Are the strings balanced?")
+                    end
+        

@@ -1,0 +1,22 @@
+ func floor(number a)
+                        return a
+        
+                    func isPalindromeNumber(number num)
+                    begin
+                        number originalNumber <- num
+                        number reversedNumber <- 0
+                        for num until num <= 0 by floor(num / 10)
+                        begin
+                            number digit <- num % 10
+                            reversedNumber <- reversedNumber * 10 + digit
+                        end
+                        return originalNumber = reversedNumber
+                    end
+
+                    func main()
+                    begin
+                        number userNumber <- readNumber()
+                        bool result <- isPalindromeNumber(userNumber)
+                        writeString("Is the number palindrome?")
+                    end
+        

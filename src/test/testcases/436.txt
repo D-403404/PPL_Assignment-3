@@ -1,0 +1,52 @@
+ func power(number a, number b)
+                        return a * b
+                    func sqrt(number a)
+                        return a
+                    func abs(number a)
+                        return a
+                        
+                    func calculateQuadraticRoots(number a, number b, number c)
+                    begin
+                        number discriminant <- power(b, 2) - 4 * a * c
+                        if (discriminant > 0)
+                        begin
+                            number root1 <- (-b + sqrt(discriminant)) / (2 * a)
+                            number root2 <- (-b - sqrt(discriminant)) / (2 * a)
+                            return "Two distinct real roots: {}, {}"
+                        end
+                        elif (discriminant = 0)
+                        begin
+                            number root <- -b / (2 * a)
+                            return "One real root: {}"
+                        end
+                        else
+                        begin
+                            number realPart <- -b / (2 * a)
+                            number imaginaryPart <- (sqrt(abs(discriminant))) / (2 * a)
+                            return "Complex roots: {} + {}i, {} - {}i"
+                        end
+                    end
+
+                    func getUserInput()
+                    begin
+                        number a <- readNumber()
+                        number b <- readNumber()
+                        number c <- readNumber()
+                        return [a, b, c]
+                    end
+
+                    func displayResult(string result)
+                    begin
+                        writeString(result)
+                    end
+
+                    func main()
+                    begin
+                        number nums[3] <- getUserInput()
+                        number a <- nums[0]
+                        number b <- nums[1]
+                        number c <- nums[2]
+                        string result <- calculateQuadraticRoots(a, b, c)
+                        displayResult(result)
+                    end
+        

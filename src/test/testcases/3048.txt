@@ -1,0 +1,14 @@
+
+        number a[1,2] <- [[0.0,0e2]]
+        func incr(number x)
+            return x + 100
+        func main()
+        begin
+            dynamic b
+            number d
+            number c <- a[b,incr(d)]
+            b <- incr(b)
+            d <- "Hello World"
+        end
+
+        

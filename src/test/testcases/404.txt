@@ -1,2 +1,12 @@
+ number a <- 10
+                    number b <- 15
 
-number a <- b[1][2] + c
+                    func gcd(number a, number b)
+
+                    func gcd(number a, number b)
+                    begin
+                        
+                    end
+
+                    bool c <- true
+        

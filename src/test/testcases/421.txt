@@ -1,0 +1,7 @@
+ func main()
+                    begin
+                        dynamic i
+                        for i until i > 5 by 2
+                            i <- true
+                    end
+        

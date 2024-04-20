@@ -1,0 +1,16 @@
+
+        func foo(string a)
+        
+        func foo(string b)
+        begin
+            return
+        end
+
+        func foo(number a, string b)
+        
+        func main()
+        begin
+            foo()
+        end
+
+        

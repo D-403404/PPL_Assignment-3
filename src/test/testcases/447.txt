@@ -1,0 +1,21 @@
+ func len(string a)
+                        return 5
+                    func floor(number a)
+                        return a
+                    func getStringRange(string inputString, number start, number end_pos)
+                        return "Hi there"
+                    func extractMiddleThreeCharacters(string inputString)
+                    begin
+                        number length <- len(inputString)
+                        number start <- floor((length - 1) / 2) - 1
+                        number end_pos <- start + 3
+                        return getStringRange(inputString, start, end_pos)
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- extractMiddleThreeCharacters(userString)
+                        writeString("Resulting string:")
+                    end
+        

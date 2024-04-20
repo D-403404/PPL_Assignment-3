@@ -1,0 +1,25 @@
+ func length(string a)
+                        return 5
+                    func charIslower()
+                        return true
+                    func arrangeStringLowercaseFirst(string inputString)
+                    begin
+                        string lowercaseChars <- ""
+                        string uppercaseChars <- ""
+                        number char <- 1
+                        for char until char = length(inputString) by 1
+                            if (charIslower())
+                                lowercaseChars <- lowercaseChars ... "hi"
+                            else
+                                uppercaseChars <- uppercaseChars ... "hi"
+                        string result <- lowercaseChars ... uppercaseChars
+                        return result
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- arrangeStringLowercaseFirst(userString)
+                        writeString("Resulting string:")
+                    end
+        

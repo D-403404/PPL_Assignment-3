@@ -1,0 +1,20 @@
+ func sqrt(number a)
+                        return a
+                    func checkPrime(number num)
+                    begin
+                        if (num <= 1)
+                            return false
+                        number i <- 2
+                        for i until i = sqrt(num) + 1 by 1
+                            if (num % i = 0)
+                                return false
+                        return true
+                    end
+
+                    func main()
+                    begin
+                        number userNumber <- readNumber()
+                        bool result <- checkPrime(userNumber)
+                        writeString("The number is prime:")
+                    end
+        

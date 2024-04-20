@@ -1,0 +1,23 @@
+ func abs(number a)
+                        return -a
+                    func calculateSquareRootBabylonianMethod(number num)
+                    begin
+                        number guess <- num / 2
+                        number i <- 0
+                        for i until i = -1 by 1
+                        begin
+                            number newGuess <- 0.5 * (guess + num / guess)
+                            if (abs(newGuess - guess) < 1e-9)
+                                return newGuess
+                            guess <- newGuess
+                        end
+                        return guess
+                    end
+
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+                        number result <- calculateSquareRootBabylonianMethod(userInput)
+                        writeNumber(result)
+                    end
+        

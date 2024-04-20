@@ -1,0 +1,12 @@
+ func print(number a, number b)
+                    begin
+
+                    end
+        
+                    func main()
+                    begin
+                        number a <- 6
+                        string b <- "hello"
+                        print(a, b)
+                    end
+        

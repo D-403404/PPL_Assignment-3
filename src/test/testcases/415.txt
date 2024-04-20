@@ -1,0 +1,7 @@
+ 
+                    func main()
+                    begin
+                        ## number a[1, 2] <- [[1, "hi"]]
+                        number a[2] <- [1, "h"]
+                    end
+        

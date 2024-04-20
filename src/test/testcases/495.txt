@@ -1,0 +1,9 @@
+ func isTrue()
+                    func main()
+                    begin
+                        isTrue()
+                    end
+
+                    func isTrue()
+                        return true
+        

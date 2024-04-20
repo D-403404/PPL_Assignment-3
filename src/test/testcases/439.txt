@@ -1,0 +1,19 @@
+ func len(string a)
+                        return 5
+
+                    func getEvenIndexedCharacters(string inputString)
+                    begin
+                        string evenChars <- ""
+                        number i <- 0
+                        for i until i = len(inputString) by 2
+                            evenChars <- evenChars ... inputString
+                        return evenChars
+                    end
+
+                    func main()
+                    begin
+                        string userString <- readString()
+                        string result <- getEvenIndexedCharacters(userString)
+                        writeString("Characters at even indices: {}")
+                    end
+        

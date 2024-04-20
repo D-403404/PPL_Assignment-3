@@ -1,0 +1,16 @@
+ func pow(number a, number b)
+                        return a * b
+                    func calculateWindChill(number temperature, number windSpeed)
+                    begin
+                        number windChill <- 35.74 + 0.6215 * temperature - 35.75 * pow(windSpeed, 0.16) + 0.4275 * temperature * pow(windSpeed, 0.16)
+                        return windChill
+                    end
+
+                    func main()
+                    begin
+                        number temp <- readNumber()
+                        number windSpeed <- readNumber()
+                        number result <- calculateWindChill(temp, windSpeed)
+                        writeNumber(result)
+                    end
+        

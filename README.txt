@@ -18,7 +18,8 @@ Then type: python run.py test CheckerSuite
 
 * Todo:
 - Check visitId later
-- Check visitArrayLiteral later => hardest
+- Check visitArrayLiteral later => hardest      DONE?
 - Check visitReturn later
 - Do visitVarDecl           DONE
-- Check inferType (CallExpr) later
+- Check inferType (CallExpr) later      DONE?
+- Fix visitReturn

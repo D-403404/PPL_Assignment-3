@@ -1,1 +1,1 @@
-successful
+Undeclared Function: foo

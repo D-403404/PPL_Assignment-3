@@ -1,0 +1,12 @@
+ func foo(number a)
+                    begin
+                        string a <- "hello"
+                        return a
+                    end
+
+                    func main()
+                    begin
+                        var a <- 5
+                        string b <- foo(a) ... "hi"
+                    end
+        

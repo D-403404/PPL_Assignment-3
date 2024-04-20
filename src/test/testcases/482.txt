@@ -1,0 +1,6 @@
+ func main()
+                    begin
+                        number a <- 5
+                        number b <- a[1]
+                    end
+        

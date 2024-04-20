@@ -1,0 +1,29 @@
+ number c <- 3
+                    number d <- 4
+                    func main()
+                    begin
+                        number i <- 1
+                        number j <- 1
+                        number k <- 1
+                        for i until i = 9 by 1
+                        begin
+                            for j until j = 12 by 1
+                            begin
+                                number a <- 1
+                                number b <- 2
+                                if (a > b + c / d)
+                                    break
+                                elif (a < b + c / d)
+                                    continue
+                                else
+                                    for k until k = 10 by 2
+                                        writeString("Hello, nice to meet you")
+                                if (a = d)
+                                    break
+                            end
+                            begin
+
+                            end
+                        end
+                    end
+        

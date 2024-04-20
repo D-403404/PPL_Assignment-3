@@ -1,3 +1,19 @@
+ number a <- 10
+                    number b <- 15
 
-number a[3] <- b[1] + c
-number b[3] <- (a+b+c)[3]
+                    func gcd(number a, number b)
+
+                    func main()
+                    begin
+                        
+                    end
+
+                    func gcd(number a, number b)
+                    begin
+                        
+                    end
+
+                    func gcd(number a, number b)
+
+                    bool c <- true
+        

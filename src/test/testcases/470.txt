@@ -1,0 +1,35 @@
+ func addComplexNumbers(number a, number b)
+                        return a + b
+
+                    func subtractComplexNumbers(number a, number b)
+                        return a - b
+
+                    func multiplyComplexNumbers(number a, number b)
+                        return a * b
+
+                    func divideComplexNumbers(number a, number b)
+                        return a / b
+                    
+                    func complex(number real1, number imag1)
+                        return 1
+                    func main()
+                    begin
+                        number real1 <- readNumber()
+                        number imag1 <- readNumber()
+                        number real2 <- readNumber()
+                        number imag2 <- readNumber()
+
+                        number num1 <- complex(real1, imag1)
+                        number num2 <- complex(real2, imag2)
+
+                        number addResult <- addComplexNumbers(num1, num2)
+                        number subtractResult <- subtractComplexNumbers(num1, num2)
+                        number multiplyResult <- multiplyComplexNumbers(num1, num2)
+                        number divideResult <- divideComplexNumbers(num1, num2)
+
+                        writeNumber(addResult)
+                        writeNumber(subtractResult)
+                        writeNumber(multiplyResult)
+                        writeNumber(divideResult)
+                    end
+        

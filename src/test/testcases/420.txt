@@ -1,0 +1,9 @@
+ func main()
+                    begin
+                        dynamic b <- b + b
+                        dynamic a <- a + a
+                        dynamic c <- a > b
+                        if (c)
+                            return 0
+                    end
+        

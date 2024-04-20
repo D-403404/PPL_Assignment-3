@@ -1,23 +1,19 @@
-from AST import *
-from Visitor import *
-from Utils import Utils
-from StaticError import *
-from functools import reduce
-
-# from main.zcode.utils.AST import *
-# from main.zcode.utils.Visitor import *
-# from main.zcode.utils.Utils import Utils
+# from AST import *
+# from Visitor import *
+# from Utils import Utils
 # from StaticError import *
 # from functools import reduce
+
+from main.zcode.utils.AST import *
+from main.zcode.utils.Visitor import *
+from main.zcode.utils.Utils import Utils
+from StaticError import *
+from functools import reduce
 
 
 class StaticChecker(BaseVisitor, Utils):
     def __init__(self, ast):
         self.ast = ast
-        self.symlst = [{}]  # array of dicts
-        # o: [{'a': ('var', NumberType()), 'b': ('func', VoidType()), ...}, {}, {'a': ('var', BoolType())}, ...]    wrong
-        # o: [{'a.var': VariableSymbol('a', NumberType()), 'b.func': FunctionSymbol('b', VoidType()), ...}, {}, {'a.var': VariableSymbol('a', BoolType())}, ...]    wrong
-        # o: [{'a': VariableSymbol('a', NumberType()), 'b': FunctionSymbol('b', VoidType()), ...}, {}, {'a': VariableSymbol('a', BoolType())}, ...]    wrong
         self.decl_lhs = None
         self.arraylst = []
         self.nobodylst = []
@@ -25,15 +21,20 @@ class StaticChecker(BaseVisitor, Utils):
         self.curr_func_name = ''
         self.looplst = []
         self.inferring_func = False
+        self.can_infer = True
         self.ret_typ = None
         self.iodict = {
             'readNumber.func': FunctionSymbol('readNumber', NumberType(), {}, None), 
-            'writeNumber.func': FunctionSymbol('writeNumber', NumberType(), {'anArg.var': VariableSymbol('anArg', NumberType())}, None), 
+            'writeNumber.func': FunctionSymbol('writeNumber', VoidType(), {'anArg.var': VariableSymbol('anArg', NumberType())}, None), 
             'readBool.func': FunctionSymbol('readBool', BoolType(), {}, None), 
-            'writeBool.func': FunctionSymbol('writeBool', BoolType(), {'anArg.var': VariableSymbol('anArg', BoolType())}, None), 
+            'writeBool.func': FunctionSymbol('writeBool', VoidType(), {'anArg.var': VariableSymbol('anArg', BoolType())}, None), 
             'readString.func': FunctionSymbol('readString', StringType(), {}, None), 
-            'writeString.func': FunctionSymbol('writeString', StringType(), {'anArg.var': VariableSymbol('anArg', StringType())}, None), 
+            'writeString.func': FunctionSymbol('writeString', VoidType(), {'anArg.var': VariableSymbol('anArg', StringType())}, None), 
             }
+        self.symlst = [self.iodict]  # array of dicts
+        # o: [{'a': ('var', NumberType()), 'b': ('func', VoidType()), ...}, {}, {'a': ('var', BoolType())}, ...]    wrong
+        # o: [{'a.var': VariableSymbol('a', NumberType()), 'b.func': FunctionSymbol('b', VoidType()), ...}, {}, {'a.var': VariableSymbol('a', BoolType())}, ...]    wrong
+        # o: [{'a': VariableSymbol('a', NumberType()), 'b': FunctionSymbol('b', VoidType()), ...}, {}, {'a': VariableSymbol('a', BoolType())}, ...]    wrong
 
     # Utils
     # def lookup(self, name, lst, func):
@@ -52,35 +53,39 @@ class StaticChecker(BaseVisitor, Utils):
                 return scope
 
     def check(self):
-        # print('check')
+        print('check')
         self.visit(self.ast, None)
         # return ''
 
-    def visitProgram(self, ast, param):
-        # print(ast)
+    def visitProgram(self, ast: Program, param):
+        print(ast)
 
-        symbol_table = [self.iodict]
+        # symbol_table = [self.iodict]
         for decl in ast.decl:
-            self.visit(decl, symbol_table)
+            self.visit(decl, self.symlst)
 
-        if 'main.func' not in symbol_table[-1]:
+        [scope[sym].print() for scope in self.symlst for sym in scope]
+
+        if 'main.func' not in self.symlst[-1]:
+            print('no main found')
             raise NoEntryPoint()
-        if type(symbol_table[-1]['main.func'].type) is not VoidType or len(symbol_table[-1]['main.func'].paramlst) != 0:
+        if type(self.symlst[-1]['main.func'].type) is not VoidType or len(self.symlst[-1]['main.func'].paramlst) != 0:
+            print('main not void or empty param')
             raise NoEntryPoint()
 
         if self.nobodylst != []:
-            raise NoDefinition(self.nobodylst[0])
+            raise NoDefinition(self.nobodylst[0].name.name)
 
     def visitVarDecl(self, ast, param):
-        # print(ast)
+        print(ast)
         if ast.name.name + '.var' in param[0] or ast.name.name + '.func' in param[0]:
             raise Redeclared(Variable(), ast.name.name)
         
         if ast.varInit is not None:
             rhs_typ = self.visit(ast.varInit, param)
             lhs_typ = ast.varType
-            # print(rhs_typ)
-            # print(lhs_typ)
+            print(rhs_typ)
+            print(lhs_typ)
             if lhs_typ is None and rhs_typ is None:
                 raise TypeCannotBeInferred(ast)
             elif lhs_typ is None:
@@ -96,7 +101,7 @@ class StaticChecker(BaseVisitor, Utils):
             elif type(lhs_typ) is ArrayType:
                 if rhs_typ.size[:len(lhs_typ.size)] != lhs_typ.size:  # [[a,b],[3,4]] => dont know size of a,b => [a,b] size is [2,?]
                     raise TypeMismatchInStatement(ast)
-                # print(4)
+                print(4)
                 
                 if rhs_typ.eleType is None:
                     if self.checkType(ast, ast.rhs, rhs_typ, lhs_typ, param, 1) is not None:
@@ -104,23 +109,25 @@ class StaticChecker(BaseVisitor, Utils):
                     else:
                         raise TypeCannotBeInferred(ast)
 
-                # print(rhs_typ.eleType)
-                # print(lhs_typ.eleType)
+                print(rhs_typ.eleType)
+                print(lhs_typ.eleType)
                 if rhs_typ.size != lhs_typ.size or type(rhs_typ.eleType) is not type(lhs_typ.eleType):
                     raise TypeMismatchInStatement(ast)
-                # print(5)
+                print(5)
+
+                param[0][ast.name.name + '.var'] = VariableSymbol(ast.name.name, lhs_typ)
             else:
                 param[0][ast.name.name + '.var'] = VariableSymbol(ast.name.name, lhs_typ)
         else:
-            # print(3)
+            print(3)
             param[0][ast.name.name + '.var'] = VariableSymbol(ast.name.name, ast.varType)
-            # param[0][ast.name.name + '.var'].print()
+            param[0][ast.name.name + '.var'].print()
         
         self.arraylst = []
 
     def visitFuncDecl(self, ast, param):
-        # print(ast)
-        # print(self.inferring_func)
+        print(ast)
+        print(self.inferring_func)
 
         self.curr_func_name = ast.name.name
         global_scope = param[-1]   # global scope
@@ -132,14 +139,14 @@ class StaticChecker(BaseVisitor, Utils):
             self.visit(decl, paramlst)
         function_scope = paramlst + param
 
-        # print(paramlst)
-        # print(function_scope)
-        # [dict[sym].print() for dict in function_scope for sym in dict]
+        print(paramlst)
+        print(function_scope)
+        [dict[sym].print() for dict in function_scope for sym in dict]
         # print(global_scope[ast.name.name + '.func'])
 
         if ast.name.name + '.func' in global_scope:
             symbol = global_scope[ast.name.name + '.func']
-            # symbol.print()
+            symbol.print()
 
             if not self.inferring_func and symbol.body is not None:
                 raise Redeclared(Function(), ast.name.name)
@@ -150,8 +157,8 @@ class StaticChecker(BaseVisitor, Utils):
             if len(ast.param) != len(symbol.paramlst): # different # of params
                 raise Redeclared(Function(), ast.name.name)
             for idx in range(len(paramlst[0])):
-                if type(paramlst[0][list(symbol.paramlst.keys())[idx]]) != type(symbol.paramlst[list(symbol.paramlst.keys())[idx]]):    # different type of params
-                    # print('redeclared func_4')
+                if type(list(paramlst[0].values())[idx]) != type(list(symbol.paramlst.values())[idx]):    # different type of params
+                    print('redeclared func_4')
                     raise Redeclared(Function(), ast.name.name)
 
             for idx in range(len(self.nobodylst)):
@@ -159,8 +166,15 @@ class StaticChecker(BaseVisitor, Utils):
                     self.nobodylst.pop(idx)
                     break
 
+            if ast.body is not None:
+                self.visit(ast.body, function_scope)
+                # global_scope[ast.name.name + '.func'] = FunctionSymbol(ast.name.name, func_typ, paramlst[0], ast.body)
+                # print(f'func_typ of {ast.body} is {func_typ}')
+                if global_scope[ast.name.name + '.func'].type is None:
+                    global_scope[ast.name.name + '.func'] = FunctionSymbol(ast.name.name, VoidType(), paramlst[0], ast.body)
+
         else:
-            # print('not in scope: ' + ast.name.name)
+            print('not in scope: ' + ast.name.name)
             global_scope[ast.name.name + '.func'] = FunctionSymbol(ast.name.name, None, paramlst[0], ast.body)
             if ast.body is None:
                 if not self.inferring_func:
@@ -172,7 +186,7 @@ class StaticChecker(BaseVisitor, Utils):
                 if global_scope[ast.name.name + '.func'].type is None:
                     global_scope[ast.name.name + '.func'] = FunctionSymbol(ast.name.name, VoidType(), paramlst[0], ast.body)
         
-        # print(param)
+        print(param)
 
         self.visited_return = False
 
@@ -188,8 +202,8 @@ class StaticChecker(BaseVisitor, Utils):
     def visitArrayType(self, ast, param):
         return ArrayType(ast.size, ast.eleType)
 
-    def inferType(self, ast, req_op_typ, param):
-        # print(f'inferring {ast} to {req_op_typ}')
+    def inferType(self, ast: Id | ArrayLiteral | CallExpr | CallStmt, req_op_typ, param):
+        print(f'inferring {ast} to {req_op_typ}')
         if type(ast) is Id:
             for scopedict in param:
                 # res = self.lookup(ast.name + '.var', scopedict.keys(), lambda id: id)
@@ -225,9 +239,10 @@ class StaticChecker(BaseVisitor, Utils):
         return False
 
     def checkType(self, ast, op, op_typ, req_op_typ, param, typ = 0):
-        # print(f'checking {op} in {ast}')
+        print(f'checking {op} in {ast}')
+        print(f'{op_typ} vs {req_op_typ}')
         if op_typ is None:  # infer type
-            # print('op_typ is None')
+            print('op_typ is None')
             if type(op) in [Id, CallExpr, ArrayLiteral]:
                 inferred = self.inferType(op, req_op_typ, param)
                 if inferred:
@@ -241,7 +256,7 @@ class StaticChecker(BaseVisitor, Utils):
             else:
                 raise TypeMismatchInStatement(ast)
 
-        # print('all good')
+        print('all good')
         return req_op_typ
 
     def visitBinaryOp(self, ast, param):
@@ -299,7 +314,7 @@ class StaticChecker(BaseVisitor, Utils):
         return self.checkType(ast, ast.operand, op_typ, BoolType(), param)
 
     def visitCallExpr(self, ast, param):
-        # print(ast)
+        print(ast)
         for scope in param[:-1]:
             if ast.name.name + '.var' in scope:  # a var with the same name as func
                 raise TypeMismatchInExpression(ast)
@@ -308,24 +323,26 @@ class StaticChecker(BaseVisitor, Utils):
             raise Undeclared(Function(), ast.name.name)
         
         symbol = param[-1][ast.name.name + '.func']
-        # print(symbol)
-        # symbol.print()
+        print(symbol)
+        symbol.print()
+
+        # if symbol.type is None:
         
         if type(symbol.type) is VoidType:
             raise TypeMismatchInExpression(ast)
         if len(ast.args) != len(symbol.paramlst):
             raise TypeMismatchInExpression(ast)
         
-        # print(1)
+        print(1)
         
         for idx in range(len(ast.args)):
             arg_typ = self.visit(ast.args[idx], param)
-            # print(arg_typ)
-            # print(ast.args[idx])
-            # symbol.paramlst[list(symbol.paramlst.keys())[idx]].print()
+            print(arg_typ)
+            print(ast.args[idx])
+            symbol.paramlst[list(symbol.paramlst.keys())[idx]].print()
 
             arg_check = self.checkType(ast, ast.args[idx], arg_typ, symbol.paramlst[list(symbol.paramlst.keys())[idx]].type, param)
-            # print(2)
+            print(2)
             if arg_check is None:
                 return None
             # arg_typ = symbol.paramlst[list(symbol.paramlst.keys())[idx]]
@@ -347,7 +364,7 @@ class StaticChecker(BaseVisitor, Utils):
                 if arg_typ.size != symbol.paramlst[list(symbol.paramlst.keys())[idx]].size or type(arg_typ.eleType) is not type(symbol.paramlst[list(symbol.paramlst.keys())[idx]].eleType):
                     raise TypeMismatchInExpression(ast)
                 
-        # symbol.print()
+        symbol.print()
         return symbol.type
 
     def visitId(self, ast, param):
@@ -385,17 +402,19 @@ class StaticChecker(BaseVisitor, Utils):
         
         if type(arrayId_typ) is not ArrayType:
             raise TypeMismatchInExpression(ast)
-        if len(ast.idx) > (ast.arr.size):
+        print('haha')
+        if len(ast.idx) > len(arrayId_typ.size):
             raise TypeMismatchInExpression(ast)
+        print('hihi')
         for idx in ast.idx:
             idx_typ = self.visit(idx, param)
-            idx_check = self.checkType(ast, idx, idx_typ, NumberType, param)
+            idx_check = self.checkType(ast, idx, idx_typ, NumberType(), param)
             if idx_check is None:
                 return None
             
-        if len(ast.arr.size) == len(ast.idx):
-            return ast.arr.eleType
-        return ArrayType(ast.arr.size[len(ast.idx):], ast.arr.eleType)
+        if len(ast.idx) == len(arrayId_typ.size):
+            return arrayId_typ.eleType
+        return ArrayType(arrayId_typ.size[len(ast.idx):], arrayId_typ.eleType)
 
     def visitBlock(self, ast, param):
         block_scope = [{}] + param
@@ -406,26 +425,30 @@ class StaticChecker(BaseVisitor, Utils):
         self.visited_return = False
 
     def visitIf(self, ast, param):
-        self.visited_return = False
+        # self.visited_return = False
         expr_typ = self.visit(ast.expr, param)
         expr_check = self.checkType(ast, ast.expr, expr_typ, BoolType(), param, 1)
         if expr_check is None:
             raise TypeCannotBeInferred(ast)
+        self.visited_return = False
         self.visit(ast.thenStmt, param)
 
         for stmt in ast.elifStmt:
+            self.visited_return = False
             expr_typ = self.visit(stmt[0], param)
             expr_check = self.checkType(ast, stmt[0], expr_typ, BoolType(), param, 1)
             if expr_check is None:
                 raise TypeCannotBeInferred(ast)
             self.visit(stmt[1], param)
 
-        self.visit(ast.elseStmt, param)
+        self.visited_return = False
+        if ast.elseStmt is not None:
+            self.visit(ast.elseStmt, param)
 
         self.arraylst = []
 
     def visitFor(self, ast, param):
-        self.visited_return = False
+        # self.visited_return = False
         self.looplst += [ast]
 
         name_typ = self.visit(ast.name, param)
@@ -459,34 +482,38 @@ class StaticChecker(BaseVisitor, Utils):
         self.arraylst = []
 
     def visitReturn(self, ast, param):
-        # print(ast)
+        print(ast)
         if self.visited_return is True:
             return
+        self.visited_return = True
         
         global_scope = param[-1]
         symbol = global_scope[self.curr_func_name + '.func']
 
         if ast.expr is None:
+            if symbol.type is not None and type(symbol.type) is not VoidType:
+                raise TypeMismatchInStatement(ast)
+            
             global_scope[self.curr_func_name + '.func'] = FunctionSymbol(symbol.name, VoidType(), symbol.paramlst, symbol.body)
             return VoidType()
         
         ret_typ = self.visit(ast.expr, param)
-        # print(f'ret_typ of {self.curr_func_name}: {ret_typ}')
-        # print(f'current ret_typ of {self.curr_func_name}: {symbol.type}')
+        print(f'ret_typ of {self.curr_func_name}: {ret_typ}')
+        print(f'current ret_typ of {self.curr_func_name}: {symbol.type}')
 
         if symbol.type is None:
             if ret_typ is None:
                 raise TypeCannotBeInferred(ast)
             # infer type of function
             global_scope[self.curr_func_name + '.func'] = FunctionSymbol(symbol.name, ret_typ, symbol.paramlst, symbol.body)
-            # print((global_scope[self.curr_func_name + '.func'].type))
+            print((global_scope[self.curr_func_name + '.func'].type))
 
         # function has a type
         else:
             if type(symbol.type) is VoidType:
                 raise TypeMismatchInStatement(ast)
             
-            ret_check = self.checkType(ast, ast.expr, ret_typ, symbol.type, param)
+            ret_check = self.checkType(ast, ast.expr, ret_typ, symbol.type, param, 1)
             if ret_check is None:
                 raise TypeCannotBeInferred(ast)
             ret_typ = symbol.type
@@ -521,23 +548,22 @@ class StaticChecker(BaseVisitor, Utils):
                     raise TypeMismatchInStatement(ast)
             
         self.arraylst = []
-        return 
 
     def visitAssign(self, ast, param):
-        # print(ast)
+        print(ast)
         rhs_typ = self.visit(ast.rhs, param)
         lhs_typ = self.visit(ast.lhs, param)
 
-        # print(rhs_typ)
-        # print(lhs_typ)
+        print(rhs_typ)
+        print(lhs_typ)
 
         if lhs_typ is None and rhs_typ is None:
             raise TypeCannotBeInferred(ast)
         elif lhs_typ is None:
-            if self.checkType(lhs_typ, rhs_typ, param) is None:
+            if self.checkType(ast, ast.lhs, lhs_typ, rhs_typ, param, 1) is None:
                 raise TypeCannotBeInferred(ast)
         elif rhs_typ is None:
-            if self.checkType(rhs_typ, lhs_typ, param) is None:
+            if self.checkType(ast, ast.exp, rhs_typ, lhs_typ, param, 1) is None:
                 raise TypeCannotBeInferred(ast)
         elif type(lhs_typ) is VoidType or type(rhs_typ) is VoidType:
             raise TypeMismatchInStatement(ast)
@@ -565,17 +591,19 @@ class StaticChecker(BaseVisitor, Utils):
             raise Undeclared(Function(), ast.name.name)
         
         symbol = param[-1][ast.name.name + '.func']
-        if type(symbol.type) is not None and type(symbol.type) is VoidType:
-            raise TypeMismatchInExpression(ast)
+        if symbol.type is not None and type(symbol.type) is not VoidType:
+            print('not void type')
+            raise TypeMismatchInStatement(ast)
         if len(ast.args) != len(symbol.paramlst):
             raise TypeMismatchInStatement(ast)
         
         for idx in range(len(ast.args)):
             arg_typ = self.visit(ast.args[idx], param)
-            arg_check = self.checkType(ast, ast.args[idx], arg_typ, symbol.paramlst[list(symbol.paramlst.keys())[idx]], param, 1)
+            arg_check = self.checkType(ast, ast.args[idx], arg_typ, symbol.paramlst[list(symbol.paramlst.keys())[idx]].type, param, 1)
             if arg_check is None:
                 return None
             # arg_typ = symbol.paramlst[list(symbol.paramlst.keys())[idx]]
+            # print(1)
 
             req_op_typ = symbol.paramlst[list(symbol.paramlst.keys())[idx]]
             if type(arg_typ) is ArrayType:
@@ -594,22 +622,22 @@ class StaticChecker(BaseVisitor, Utils):
                 if arg_typ.size != symbol.paramlst[list(symbol.paramlst.keys())[idx]].size or type(arg_typ.eleType) is not type(symbol.paramlst[list(symbol.paramlst.keys())[idx]].eleType):
                     raise TypeMismatchInStatement(ast)
                 
-            if type(symbol.type) is None:
+            if symbol.type is None:
                 if not self.inferType(ast, VoidType(), param):
                     raise TypeCannotBeInferred(ast)
                 
         self.arraylst = []
 
     def visitNumberLiteral(self, ast, param):
-        # print(ast)
+        print(ast)
         return NumberType()
 
     def visitBooleanLiteral(self, ast, param):
-        # print(ast)
+        print(ast)
         return BoolType()
 
     def visitStringLiteral(self, ast, param):
-        # print(ast)
+        print(ast)
         return StringType()
 
     # def checkArrayLiteral(self, ast, root_ast, param):  # to call recursion
@@ -620,10 +648,10 @@ class StaticChecker(BaseVisitor, Utils):
         # array literal is not empty
         # param[0]: scope list              wrong
         # param[1]: array element type in VarDecl statement     wrong
-        # print(ast)
+        print(ast)
         
         # if ast not in self.arraylst:
-        # print(f'push {ast}')
+        print(f'push {ast}')
         self.arraylst += [ast]
         # print(f'current arraylst: {[(str(obj)) for obj in self.arraylst]}')
 
@@ -631,7 +659,7 @@ class StaticChecker(BaseVisitor, Utils):
         for expr in ast.value:
             arrayele_typ = self.visit(expr, param)
             if arrayele_typ is not None:
-                # print(f'arrayele_typ: {arrayele_typ} of {expr} in {ast}')
+                print(f'arrayele_typ: {arrayele_typ} of {expr} in {ast}')
                 break
 
         if arrayele_typ is None:
@@ -639,7 +667,7 @@ class StaticChecker(BaseVisitor, Utils):
 
         for expr in ast.value:
             expr_typ = self.visit(expr, param)
-            # print(f'expr_typ: {expr_typ} of {expr} in {ast}')
+            print(f'expr_typ: {expr_typ} of {expr} in {ast}')
             expr_check = self.checkType(ast, expr, expr_typ, arrayele_typ, param)
             if expr_check is None:
                 return None
@@ -675,8 +703,9 @@ class StaticChecker(BaseVisitor, Utils):
                     raise TypeMismatchInExpression(self.arraylst[0])
 
         popped = self.arraylst.pop()
-        # print(f'pop {popped}')
-        if arrayele_typ is ArrayType:
+        print(f'pop {popped}')
+        if type(arrayele_typ) is ArrayType:
+            print(f'returning arrayele_typ: {arrayele_typ}')
             return ArrayType([float(len(ast.value))] + arrayele_typ.size, arrayele_typ.eleType)
         return ArrayType([float(len(ast.value))], arrayele_typ)
 

@@ -1,0 +1,9 @@
+
+        func foo(string x)
+        func main()
+        begin
+            var m <- foo(5)
+        end
+        func foo(string x)
+            return x * 2
+        

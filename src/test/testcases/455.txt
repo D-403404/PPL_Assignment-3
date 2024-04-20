@@ -1,0 +1,32 @@
+ func len(number a)
+                        return 5
+                    func length(string a)
+                        return 5
+                    func userArrayAppend(number element)
+                    begin
+
+                    end
+                    func bubbleSort(number arr)
+                    begin
+                        number n <- len(arr)
+                        var i <- 1
+                        for i until i = n by 1
+                            number j <- 0
+                            for j until j = n - i - 1 by 1
+                                if (arr > arr + 1)
+                                begin
+                                    arr <- arr + 1
+                                end
+                    end
+
+                    func main()
+                    begin
+                        number userArray <- 12
+                        string elements <- readString()
+                        number element <- 0
+                        for element until element = length(elements) by 1
+                            userArrayAppend(element)
+                        bubbleSort(userArray)
+                        writeString("Sorted Array:")
+                    end
+        

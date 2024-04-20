@@ -1,0 +1,10 @@
+ func convertDegreesToRadians(number degrees)
+                        return degrees * (3.1415 / 180)
+
+                    func main()
+                    begin
+                        number degrees <- readNumber()
+                        number radians <- convertDegreesToRadians(degrees)
+                        writeString("Radians:")
+                    end
+        

@@ -1,0 +1,19 @@
+ number pi <- 3.1415
+                    func pow(number a, number b)
+                        return a * b
+                    func tan(number a)
+                        return a
+                    func calculatePolygonArea(number n, number sideLength)
+                    begin
+                        number area <- (n * pow(sideLength, 2)) / (4 * tan(pi / n))
+                        return area
+                    end
+
+                    func main()
+                    begin
+                        number numOfSides <- readNumber()
+                        number sideLength <- readNumber()
+                        number result <- calculatePolygonArea(numOfSides, sideLength)
+                        writeNumber(result)
+                    end
+        

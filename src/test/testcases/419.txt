@@ -1,0 +1,11 @@
+ func main()
+                    begin
+                        number x <- 5
+                        var i <- 5
+                        for i until i > x / 2 by 1
+                        begin
+                            return true
+                        end
+                        continue
+                    end
+        

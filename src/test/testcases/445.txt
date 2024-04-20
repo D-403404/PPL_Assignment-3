@@ -1,0 +1,17 @@
+ func printDownwardHalfPyramid(number rows)
+                    begin
+                        number i <- rows
+                        number j <- 1
+                        for i until i = 0 by -1
+                        begin
+                            for j until j = i + 1 by 1
+                                writeString("*")
+                        end
+                    end
+
+                    func main()
+                    begin
+                        number numRows <- readNumber()
+                        printDownwardHalfPyramid(numRows)
+                    end
+        

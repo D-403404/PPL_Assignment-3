@@ -1,0 +1,20 @@
+ func calculateSquare(number num)
+                        return num * num
+
+                    func calculateCube(number num)
+                        return num * num * num
+
+                    func displayResults(number num, number square, number cube)
+                    begin
+                        writeString("The square of the number is: {}")
+                        writeString("The cube of the number is: {}")
+                    end
+
+                    func main()
+                    begin
+                        number userNumber <- readNumber()
+                        number squared <- calculateSquare(userNumber)
+                        number cubed <- calculateCube(userNumber)
+                        displayResults(userNumber, squared, cubed)
+                    end
+        

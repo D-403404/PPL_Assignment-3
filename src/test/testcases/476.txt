@@ -1,0 +1,12 @@
+ func displayFractionRepresentation(number num)
+                    begin
+                        number fractionRepresentation <- num
+                        writeNumber(fractionRepresentation)
+                    end
+
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+                        displayFractionRepresentation(userInput)
+                    end
+        
