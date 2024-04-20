@@ -1,0 +1,8 @@
+
+func str(number date)
+    return date
+
+func main()
+begin
+    writeNumber(21-04-2024)
+end

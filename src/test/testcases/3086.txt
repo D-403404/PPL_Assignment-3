@@ -1,0 +1,13 @@
+
+        func f()
+        begin
+            number c[3,2] <- [[6,7],[4,5],[4,5]]
+            return c[2,0]
+        end
+
+        func main()
+            begin
+                dynamic a <- f()
+                a <- 3
+            end
+        

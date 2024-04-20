@@ -1,1 +1,1 @@
-Undeclared Identifier: a
+Type Mismatch In Expression: ArrayCell(Id(a), [StringLit(hello)])

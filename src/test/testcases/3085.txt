@@ -1,0 +1,8 @@
+
+        func main()
+        func main()
+            begin
+                dynamic num
+                bool a <- num and (num > num)
+            end
+        

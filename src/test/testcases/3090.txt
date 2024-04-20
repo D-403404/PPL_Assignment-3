@@ -1,0 +1,6 @@
+
+func main()
+begin
+    var x <- [[[1,2]],[3,4]]
+    writeNumber(x)
+end

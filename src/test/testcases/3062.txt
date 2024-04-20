@@ -1,0 +1,10 @@
+
+        func foo(number arg)
+        begin
+            dynamic arg <- arg + 2
+            arg <- "abc"
+        end
+        dynamic a
+        func main()
+            return
+                

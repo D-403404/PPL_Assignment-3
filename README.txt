@@ -23,3 +23,6 @@ Then type: python run.py test CheckerSuite
 - Do visitVarDecl           DONE
 - Check inferType (CallExpr) later      DONE?
 - Fix visitReturn
+- Do Redeclared Parameter
+- Check test_3059
+- Check test_3077

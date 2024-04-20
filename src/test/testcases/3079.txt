@@ -1,0 +1,12 @@
+
+func g(number f)
+begin
+    f()
+end
+
+func f()
+    
+func main()
+begin
+    
+end

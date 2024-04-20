@@ -1,0 +1,7 @@
+
+func f()
+    
+func main()
+begin
+    bool fx <- f() and f()
+end

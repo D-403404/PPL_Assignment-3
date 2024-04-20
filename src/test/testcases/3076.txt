@@ -1,0 +1,11 @@
+
+func f(number x[5])
+begin
+    return x[11]
+end
+    
+func main()
+begin
+    dynamic a
+    a[10] <- f(a) / 0
+end

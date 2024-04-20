@@ -1,7 +1,16 @@
+ func convertPolarToRectangular(number length, number angle)
+                    begin
+                        number rectangularNum <- length + angle
+                        return rectangularNum
+                    end
 
-            func main()
-            begin
-                dynamic c <- [1,2,3,4,5] 
-            end
+                    func main()
+                    begin
+                        number length <- readNumber()
+                        number angle <- readNumber()
 
+                        number rectangularResult <- convertPolarToRectangular(length, angle)
+
+                        writeNumber(rectangularResult)
+                    end
         

@@ -1,10 +1,15 @@
+ func round(number a, number b)
+                        return a - b
+                    func roundDecimal(number num, number precision)
+                        return round(num, precision)
 
-            func foo()
-                return [1,2,3,4,5]
-            func main()
-            begin
-    
-                dynamic c <- foo()
-            end
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+                        number precisionInput <- readNumber()
 
+                        number roundedResult <- roundDecimal(userInput, precisionInput)
+
+                        writeNumber(roundedResult)
+                    end
         

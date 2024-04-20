@@ -1,0 +1,13 @@
+
+        func f()
+        begin
+            number c[3,2] <- [[-6,7],[12,81],[144,-55]]
+            return c[5]
+        end
+
+        func main()
+            begin
+                dynamic a <- f()
+                a <- a
+            end
+        

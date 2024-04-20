@@ -1,1 +1,1 @@
-Type Mismatch In Expression: CallStmt(Id(print), [Id(a), Id(b)])
+Type Mismatch In Statement: CallStmt(Id(print), [Id(a), Id(b)])

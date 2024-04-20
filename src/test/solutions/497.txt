@@ -1,1 +1,1 @@
-No Function Definition: FuncDecl(Id(isTrue), [], None)
+No Function Definition: isTrue

@@ -1,0 +1,15 @@
+
+    func f(number x)
+    begin
+        dynamic x
+        string b[4]
+        bool e <- not x
+        dynamic c <- b[x]
+        bool d <- c == ""
+    end
+    func main()
+    begin
+        f(1)
+    end
+    
+    

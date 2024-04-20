@@ -1,0 +1,11 @@
+
+func f(number x[5])
+begin
+    return f(x)
+end
+    
+func main()
+begin
+    dynamic a
+    a <- f(a) ... "0"
+end

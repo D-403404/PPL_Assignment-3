@@ -1,0 +1,9 @@
+
+    func foo(string a) 
+    begin
+        dynamic a
+        return a
+    end
+    func main() return
+    
+    

@@ -1,0 +1,8 @@
+
+        dynamic a
+        func main()
+            begin
+                return
+                a <- a % 3 + (a * (a - "2"))
+            end
+                

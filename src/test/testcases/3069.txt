@@ -1,0 +1,16 @@
+
+func f(number x[5])
+begin
+    dynamic x
+    if (x % 2 = 0) return 0
+    elif (x % 2 = 1) return 1
+    else return f(x - 1) + f(x - 2)
+end
+    
+func main()
+begin
+    dynamic a
+    number b
+    number x <- f([a,b,3])
+    a <- 1
+end

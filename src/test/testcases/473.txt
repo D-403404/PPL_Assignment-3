@@ -1,9 +1,21 @@
+ func sqrt(number a)
+                        return a / 2
+                    func exp(number a)
+                        return a / 2
+                    func calculateSquareRoot(number num)
+                        return sqrt(num)
 
-            func main()
-            begin
-                
-                number b[6] <- [1,2,3,4,5]
-                dynamic c <- b 
-            end
+                    func calculateExponential(number num)
+                        return exp(num)
 
+                    func main()
+                    begin
+                        number userInput <- readNumber()
+
+                        number squareRootResult <- calculateSquareRoot(userInput)
+                        number exponentialResult <- calculateExponential(userInput)
+
+                        writeNumber(squareRootResult)
+                        writeNumber(exponentialResult)
+                    end
         

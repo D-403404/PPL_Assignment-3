@@ -1,1 +1,1 @@
-Type Mismatch In Expression: ArrayLit(BooleanLit(True), ArrayLit(BooleanLit(False)))
+Type Mismatch In Expression: ArrayLit(ArrayLit(BooleanLit(True), ArrayLit(BooleanLit(False))), BooleanLit(True))

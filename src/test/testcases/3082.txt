@@ -1,0 +1,14 @@
+
+    func f(number x)
+    begin
+        dynamic a <- x
+        dynamic b <- [[1,2,3], a]
+        var c <- a[0]
+        var d <- a
+    end
+    func main()
+    begin
+        f(1)
+    end
+    
+    

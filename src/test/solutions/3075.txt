@@ -1,0 +1,1 @@
+Type Cannot Be Inferred: AssignStmt(ArrayCell(Id(b), [NumLit(10.0)]), BinaryOp(..., CallExpr(Id(f), [Id(a)]), StringLit(0)))

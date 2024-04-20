@@ -1,0 +1,10 @@
+
+func f()
+begin
+    return true
+end
+    
+func main()
+begin
+    bool f <- f() and f()
+end

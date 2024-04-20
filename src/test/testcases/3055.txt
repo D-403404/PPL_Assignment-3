@@ -1,0 +1,16 @@
+
+        func foo(number a[5], string b)
+            begin
+                var i <- 0
+                for i until i >= 5 by 1
+                begin
+                a[i] <- i * i + 5
+                end
+                return -1
+            end
+        func main()
+            begin
+                ##number arr[5]
+                number x <- foo([-2,-3,5,0,-1.e9], "abc")
+            end
+                

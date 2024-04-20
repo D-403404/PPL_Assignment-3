@@ -1,0 +1,21 @@
+
+        func foo(string arg)
+        begin
+            dynamic a
+            dynamic b
+            dynamic c
+            dynamic d
+            dynamic e
+            dynamic f
+            number arr[3,3,3] <- [a,b,c]
+            a <- [[1,2,3],[4,5,6],[7,8,9]]
+            b <- [[1,2,3],[4,5,6],[7,8,9]]
+            c <- [d,e,f]
+            d <- [1,2,3]
+            e <- [1,2,3]
+            f <- [1,2,3]
+        end
+        dynamic a
+        func main()
+            return
+                

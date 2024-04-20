@@ -1,0 +1,11 @@
+
+func f(number x[5])
+begin
+    return f(x) + f(x)
+end
+    
+func main()
+begin
+    dynamic a
+    f(a)
+end
