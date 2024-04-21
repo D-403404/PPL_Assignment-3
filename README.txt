@@ -26,3 +26,8 @@ Then type: python run.py test CheckerSuite
 - Do Redeclared Parameter
 - Check test_3059
 - Check test_3077
+- Fix:
+    global scope: var a <- a => TypeCannotBeInferred
+    block scope: 
+    => bỏ đi
+- Raise lỗi arraylit: chỉ raise lỗi trong arraylit nhỏ, ko phải toàn bộ

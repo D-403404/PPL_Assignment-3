@@ -681,9 +681,9 @@ class StaticChecker(BaseVisitor, Utils):
         print(ast)
         
         # if ast not in self.arraylst:
-        print(f'push {ast}')
-        self.arraylst += [ast]
-        print(f'current arraylst: {[(str(obj)) for obj in self.arraylst]}')
+        # print(f'push {ast}')
+        # self.arraylst += [ast]
+        # print(f'current arraylst: {[(str(obj)) for obj in self.arraylst]}')
 
         arrayele_typ = None
         for expr in ast.value:
@@ -698,7 +698,7 @@ class StaticChecker(BaseVisitor, Utils):
         for expr in ast.value:
             expr_typ = self.visit(expr, param)
             print(f'expr_typ: {expr_typ} of {expr} in {ast}')
-            expr_check = self.checkType(self.arraylst[0], expr, expr_typ, arrayele_typ, param)
+            expr_check = self.checkType(ast, expr, expr_typ, arrayele_typ, param)
             if expr_check is None:
                 return None
             # expr_typ = arrayele_typ
@@ -718,7 +718,7 @@ class StaticChecker(BaseVisitor, Utils):
             # expr_typ is ArrayType, expr is ArrayLiteral
             if type(expr_typ) is ArrayType:
                 if expr_typ.size[:len(arrayele_typ.size)] != arrayele_typ.size:  # [[a,b],[3,4]] => dont know size of a,b => [a,b] size is [2,?]
-                    raise TypeMismatchInExpression(self.arraylst[0])
+                    raise TypeMismatchInExpression(ast)
                 
                 if expr_typ.eleType is None:
                     if type(expr) in [Id, CallExpr, ArrayLiteral]:
@@ -730,12 +730,12 @@ class StaticChecker(BaseVisitor, Utils):
                         return None
 
                 if expr_typ.size != arrayele_typ.size or type(expr_typ.eleType) is not type(arrayele_typ.eleType):
-                    raise TypeMismatchInExpression(self.arraylst[0])
+                    raise TypeMismatchInExpression(ast)
 
-        popped = self.arraylst.pop()
-        print(f'pop {popped}')
+        # popped = self.arraylst.pop()
+        # print(f'pop {popped}')
         if type(arrayele_typ) is ArrayType:
-            print(f'returning arrayele_typ: {arrayele_typ}')
+            # print(f'returning arrayele_typ: {arrayele_typ}')
             return ArrayType([float(len(ast.value))] + arrayele_typ.size, arrayele_typ.eleType)
         return ArrayType([float(len(ast.value))], arrayele_typ)
 

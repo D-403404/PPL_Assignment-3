@@ -1,1 +1,1 @@
-Type Mismatch In Expression: ArrayLit(NumLit(2.0), ArrayLit(NumLit(4.0), NumLit(5.0), StringLit(6)))
+Type Mismatch In Expression: ArrayLit(NumLit(4.0), NumLit(5.0), StringLit(6))

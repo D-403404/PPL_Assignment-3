@@ -442,8 +442,8 @@ class CheckSuite(unittest.TestCase):
             end
 
         """
-        expect = "Type Mismatch In Expression: ArrayLit(NumLit(2.0), ArrayLit(NumLit(4.0), NumLit(5.0), StringLit(6)))"
-        expect2 = "Type Mismatch In Expression: ArrayLit(NumLit(4.0), NumLit(5.0), StringLit(6))"
+        expect = "Type Mismatch In Expression: ArrayLit(NumLit(4.0), NumLit(5.0), StringLit(6))"
+        expect2 = "Type Mismatch In Expression: ArrayLit(NumLit(2.0), ArrayLit(NumLit(4.0), NumLit(5.0), StringLit(6)))"
         self.assertTrue(TestChecker.test(input, expect, 3030))
     
     def test_3031(self):     # CHECK LATER
@@ -772,8 +772,8 @@ class CheckSuite(unittest.TestCase):
         end
 
         """
-        expect = "Type Mismatch In Expression: ArrayLit(ArrayLit(BooleanLit(True), ArrayLit(BooleanLit(False))), BooleanLit(True))"
-        expect2 = "Type Mismatch In Expression: ArrayLit(BooleanLit(True), ArrayLit(BooleanLit(False)))"
+        expect = "Type Mismatch In Expression: ArrayLit(BooleanLit(True), ArrayLit(BooleanLit(False)))"
+        expect2 = "Type Mismatch In Expression: ArrayLit(ArrayLit(BooleanLit(True), ArrayLit(BooleanLit(False))), BooleanLit(True))"
         self.assertTrue(TestChecker.test(input, expect, 3045))
     
     def test_3046(self):     
@@ -1522,8 +1522,8 @@ begin
     writeNumber(x)
 end
 """
-        expect = "Type Mismatch In Expression: ArrayLit(ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), NumLit(2.0))), ArrayLit(NumLit(3.0), NumLit(4.0), NumLit(5.0))), ArrayLit(ArrayLit(NumLit(6.0), NumLit(7.0), NumLit(8.0)), ArrayLit(NumLit(9.0), NumLit(10.0), NumLit(11.0))))"
-        expect2 = "Type Mismatch In Expression: ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), NumLit(2.0))), ArrayLit(NumLit(3.0), NumLit(4.0), NumLit(5.0)))"
+        expect = "Type Mismatch In Expression: ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), NumLit(2.0))), ArrayLit(NumLit(3.0), NumLit(4.0), NumLit(5.0)))"
+        expect2 = "Type Mismatch In Expression: ArrayLit(ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), NumLit(2.0))), ArrayLit(NumLit(3.0), NumLit(4.0), NumLit(5.0))), ArrayLit(ArrayLit(NumLit(6.0), NumLit(7.0), NumLit(8.0)), ArrayLit(NumLit(9.0), NumLit(10.0), NumLit(11.0))))"
         self.assertTrue(TestChecker.test(input, expect, 3089))
     
     def test_3090(self):
@@ -1545,7 +1545,8 @@ begin
     writeNumber(x)
 end
 """
-        expect = "Type Mismatch In Expression: ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), BooleanLit(True))), ArrayLit(NumLit(3.0), NumLit(4.0)))"
+        expect = "Type Mismatch In Expression: ArrayLit(NumLit(1.0), BooleanLit(True))"
+        expect2 = "Type Mismatch In Expression: ArrayLit(ArrayLit(ArrayLit(NumLit(1.0), BooleanLit(True))), ArrayLit(NumLit(3.0), NumLit(4.0)))"
         self.assertTrue(TestChecker.test(input, expect, 3091))
     
     def test_3092(self):
