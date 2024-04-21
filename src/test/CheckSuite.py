@@ -1,3 +1,5 @@
+# Nguyễn Thành Đạt - 2152506
+
 import unittest
 from TestUtils import TestChecker
 from AST import *
@@ -1460,8 +1462,7 @@ end
         expect = "Type Mismatch In Expression: BinaryOp(>, Id(num), Id(num))"
         self.assertTrue(TestChecker.test(input, expect, 3085))
     
-    def test_3086(self):      
-        '''visitBinaryOp: left first or right first?'''   
+    def test_3086(self):
         input = """
         func f()
         begin
@@ -1478,8 +1479,7 @@ end
         expect = ""
         self.assertTrue(TestChecker.test(input, expect, 3086))
     
-    def test_3087(self):      
-        '''visitBinaryOp: left first or right first?'''   
+    def test_3087(self): 
         input = """
         func f()
         begin
@@ -1496,8 +1496,7 @@ end
         expect = ""
         self.assertTrue(TestChecker.test(input, expect, 3087))
     
-    def test_3088(self):      
-        '''visitBinaryOp: left first or right first?'''   
+    def test_3088(self):  
         input = """
         func f()
         begin
