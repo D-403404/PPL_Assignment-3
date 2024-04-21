@@ -1,1 +1,1 @@
-Redeclared Function: gcd
+Error on line 3 col 22: [

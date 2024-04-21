@@ -1,1 +1,1 @@
-Undeclared Identifier: a
+Error on line 5 col 8: func

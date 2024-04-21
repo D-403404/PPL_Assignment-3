@@ -1,3 +1,8 @@
- number b
-                    number c <- a
+
+func main()
+func main1()
+    begin
+        func main2()
+            return
+    end
         
